@@ -1,9 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { RectButtonProps } from 'react-native-gesture-handler';
 
 import { Container } from './styles';
 
-export const Button: React.FC = ({ children }) => {
+interface IButtonProps extends RectButtonProps {
+  children?: React.ReactNode
+}
+
+export const Button = ({ children }: IButtonProps) => {
   return <Container>{children}</Container>;
 }
 

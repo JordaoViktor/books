@@ -19,10 +19,15 @@ import {
   ButtonText
 } from './styles'
 
+interface IFormResponseProps {
+  email: string;
+  password: string;
+}
+
 export const Login = () => {
   const { control, handleSubmit } = useForm()
 
-  const handleSignIn = (form) => {
+  const handleSignIn = (form: IFormResponseProps) => {
     console.log(form)
   }
 
