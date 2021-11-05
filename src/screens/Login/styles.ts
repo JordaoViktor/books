@@ -56,6 +56,8 @@ export const BackgroundInput = styled.View`
   height:60px;
   opacity:1;
   
+  flex-direction:row;
+
   padding-left: 15px;
   padding-top:15px;
 `;
@@ -71,4 +73,19 @@ export const InputTitle = styled.Text`
 
   padding: 8px 0 0 15px;
   margin-bottom: 5px;
+`;
+
+export const ButtonWrapper = styled.View`
+  width:85px;
+  
+  margin-left: -100px;
+`;
+
+export const ButtonText = styled.Text`
+  font-family:${({ theme }) => theme.fonts.bold};
+  font-size:16px;
+
+  text-align:center;
+  color:${({ theme }) => theme.colors.tertiary};
+  padding-bottom:22px;
 `;

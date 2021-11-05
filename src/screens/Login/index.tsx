@@ -1,5 +1,11 @@
 import React from 'react'
+import { StatusBar, Keyboard } from 'react-native'
 import { useForm } from "react-hook-form"
+
+import { FormInput, Button } from '@components/index'
+
+import IoasysLogo from '@assets/svg/ioasysLogo.svg'
+
 import {
   KeyboardDismiss,
   BackgroundImage,
@@ -9,16 +15,16 @@ import {
   BackgroundInput,
   InputWrapper,
   InputTitle,
+  ButtonWrapper,
+  ButtonText
 } from './styles'
-
-import { FormInput } from '@components/index'
-import { StatusBar, Keyboard, TouchableOpacity } from 'react-native'
-import IoasysLogo from '@assets/svg/ioasysLogo.svg'
 
 export const Login = () => {
   const { control, handleSubmit } = useForm()
 
-  const handleSignIn = (form) => console.log(form)
+  const handleSignIn = (form) => {
+    console.log(form)
+  }
 
   return (
     <>
@@ -30,11 +36,12 @@ export const Login = () => {
 
       <KeyboardDismiss onPress={Keyboard.dismiss}>
         <BackgroundImage>
-          <Container >
+          <Container>
             <Header>
               <IoasysLogo width={120} height={40} />
               <Title>Books</Title>
             </Header>
+
 
             <InputWrapper marginTop={50}>
               <InputTitle>Email</InputTitle>
@@ -56,6 +63,12 @@ export const Login = () => {
                   name="password"
                   secureTextEntry
                 />
+
+                <ButtonWrapper>
+                  <Button>
+                    <ButtonText>Hello</ButtonText>
+                  </Button>
+                </ButtonWrapper>
               </BackgroundInput>
             </InputWrapper>
           </Container>
