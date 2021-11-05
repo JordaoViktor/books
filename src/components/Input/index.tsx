@@ -4,6 +4,4 @@ import { Container } from './styles';
 
 type Props = TextInputProps
 
-export const Input = ({ ...rest }: Props) => (
-  <Container {...rest} />
-)
+export const Input = ({ ...rest }: Props) => <Container {...rest} />
