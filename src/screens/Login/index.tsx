@@ -21,7 +21,6 @@ export const Login = () => {
         </Container>
       </BackgroundImage>
     </>
-
   );
 }
 
