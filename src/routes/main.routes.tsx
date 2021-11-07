@@ -2,7 +2,7 @@ import React from 'react';
 
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Login } from '@screens/index';
+import { Home, Login } from '@screens/index';
 
 export type RootStackParamListType = {
   Splash: undefined;
@@ -18,9 +18,9 @@ export const MainRoutes = () => (
     initialRouteName="Splash"
   >
     <Screen name="Login" component={Login} />
-    {/* 
+
     <Screen name="Home" component={Home} />
 
-    <Screen name="Splash" component={Splash} /> */}
+    {/* <Screen name="Splash" component={Splash} /> */}
   </Navigator>
 );

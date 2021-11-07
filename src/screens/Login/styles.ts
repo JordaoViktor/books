@@ -75,6 +75,10 @@ export const InputTitle = styled.Text`
   margin-bottom: 5px;
 `;
 
+export const ErrorWrapper = styled.View`
+  margin-left:50px;
+`;
+
 export const ButtonWrapper = styled.View`
   width:85px;
   
@@ -83,7 +87,7 @@ export const ButtonWrapper = styled.View`
 
 export const ButtonText = styled.Text`
   font-family:${({ theme }) => theme.fonts.bold};
-  font-size:16px;
+  font-size:${RFValue(16)}px;
 
   text-align:center;
   color:${({ theme }) => theme.colors.tertiary};

@@ -4,10 +4,11 @@ import { RectButtonProps } from 'react-native-gesture-handler';
 import { Container } from './styles';
 
 interface IButtonProps extends RectButtonProps {
-  children?: React.ReactNode
+  children?: React.ReactNode,
+  onPress?: () => void;
 }
 
-export const Button = ({ children }: IButtonProps) => {
-  return <Container>{children}</Container>;
+export const Button = ({ children, ...rest }: IButtonProps) => {
+  return <Container {...rest}>{children}</Container>;
 }
 

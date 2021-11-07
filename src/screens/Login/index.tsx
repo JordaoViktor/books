@@ -1,9 +1,14 @@
 import React from 'react'
-import { StatusBar, Keyboard } from 'react-native'
+import { StatusBar, Keyboard, Alert } from 'react-native'
 import { useForm } from "react-hook-form"
-
+import * as Yup from "yup"
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useNavigation } from '@react-navigation/native'
 import { FormInput, Button } from '@components/index'
 
+import { StackNavigationProp } from '@react-navigation/stack';
+
+import { RootStackParamListType } from '@routes/main.routes'
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
 
 import {
@@ -15,21 +20,64 @@ import {
   BackgroundInput,
   InputWrapper,
   InputTitle,
+  ErrorWrapper,
   ButtonWrapper,
   ButtonText
 } from './styles'
 
 interface IFormResponseProps {
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
 }
 
+type TValidationField = [
+  (value: IFormResponseProps) => boolean | IFormResponseProps,
+  void
+]
+
+type LoginScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
+
+const schema = Yup.object().shape({
+  email: Yup.string()
+    .email('O email é obrigatório')
+    .lowercase()
+    .typeError('precisa por email')
+    .required('O email é obrigatório'),
+  password: Yup
+    .string()
+    .typeError('precisa por senha')
+    .required('A senha é obrigatória')
+})
+
 export const Login = () => {
-  const { control, handleSubmit } = useForm()
+
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema)
+  })
+  const navigation = useNavigation<LoginScreenProps>()
 
   const handleSignIn = (form: IFormResponseProps) => {
-    console.log(form)
+    navigation.navigate('Home')
+    const isInvalid = (value: IFormResponseProps | string | undefined) => !value
+    const isValid = (value: string): boolean => !!value
+
+
+    const validationFields: TValidationField[] = [
+      [isInvalid(form.email), Alert.alert("E-mail inválido")],
+      [isInvalid(form.password), Alert.alert('Senha inválida')],
+      [isInvalid(form), Alert.alert('Senha e email inválidos')],
+      [isValid(form), Alert.alert('entrou')]
+    ]
+
+    const [_, alert] = validationFields.find(([iterationValue, fn]) => console.log(iterationValue) && iterationValue(form)) ?? []
+
+    // // console.log('error', errors?.email)
+    // // console.log('hey')
+    // console.log(alert)
+
+    return alert
   }
+
 
   return (
     <>
@@ -47,14 +95,18 @@ export const Login = () => {
               <Title>Books</Title>
             </Header>
 
-
             <InputWrapper marginTop={50}>
               <InputTitle>Email</InputTitle>
+              <ErrorWrapper>
+                <InputTitle>{errors && errors.email?.message}</InputTitle>
+              </ErrorWrapper>
+
 
               <BackgroundInput>
                 <FormInput
-                  control={control}
                   name="email"
+                  control={control}
+                  keyboardType="email-address"
                 />
               </BackgroundInput>
             </InputWrapper>
@@ -62,15 +114,20 @@ export const Login = () => {
             <InputWrapper marginTop={16}>
               <InputTitle>Senha</InputTitle>
 
+              <ErrorWrapper>
+                <InputTitle>{errors && errors.password?.message}</InputTitle>
+              </ErrorWrapper>
+
               <BackgroundInput>
                 <FormInput
-                  control={control}
                   name="password"
+                  control={control}
                   secureTextEntry
+                  autoCorrect={false}
                 />
 
                 <ButtonWrapper>
-                  <Button>
+                  <Button onPress={handleSubmit(handleSignIn)}>
                     <ButtonText>Hello</ButtonText>
                   </Button>
                 </ButtonWrapper>
