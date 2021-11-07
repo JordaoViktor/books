@@ -24,6 +24,7 @@ import {
   ButtonWrapper,
   ButtonText
 } from './styles'
+import { useTheme } from 'styled-components'
 
 interface IFormResponseProps {
   email?: string;
@@ -38,7 +39,8 @@ type TValidationField = [
 type LoginScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 
 const schema = Yup.object().shape({
-  email: Yup.string()
+  email: Yup
+    .string()
     .email('O email é obrigatório')
     .lowercase()
     .typeError('precisa por email')
@@ -50,32 +52,31 @@ const schema = Yup.object().shape({
 })
 
 export const Login = () => {
-
   const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   })
+
   const navigation = useNavigation<LoginScreenProps>()
+  const theme = useTheme()
 
   const handleSignIn = (form: IFormResponseProps) => {
     navigation.navigate('Home')
-    const isInvalid = (value: IFormResponseProps | string | undefined) => !value
-    const isValid = (value: string): boolean => !!value
+    // const isInvalid = (value: IFormResponseProps | string | undefined) => !value
+    // const isValid = (value: IFormResponseProps) => !!value
 
 
-    const validationFields: TValidationField[] = [
-      [isInvalid(form.email), Alert.alert("E-mail inválido")],
-      [isInvalid(form.password), Alert.alert('Senha inválida')],
-      [isInvalid(form), Alert.alert('Senha e email inválidos')],
-      [isValid(form), Alert.alert('entrou')]
-    ]
+    // const validationFields: TValidationField[] = [
+    //   [isInvalid(form.email), Alert.alert("E-mail inválido")],
+    //   [isInvalid(form.password), Alert.alert('Senha inválida')],
+    //   [isInvalid(form), Alert.alert('Senha e email inválidos')],
+    //   [isValid(form), Alert.alert('entrou')]
+    // ]
 
-    const [_, alert] = validationFields.find(([iterationValue, fn]) => console.log(iterationValue) && iterationValue(form)) ?? []
+    // const [_, alert] = validationFields.find(([iterationValue, fn]) => console.log(iterationValue) && iterationValue(form)) ?? []
 
-    // // console.log('error', errors?.email)
-    // // console.log('hey')
-    // console.log(alert)
+    // // console.log(alert)
 
-    return alert
+    // return alert
   }
 
 
@@ -91,7 +92,12 @@ export const Login = () => {
         <BackgroundImage>
           <Container>
             <Header>
-              <IoasysLogo width={120} height={40} />
+              <IoasysLogo
+                width={120}
+                height={40}
+                fill={theme.colors.lightenText}
+              />
+
               <Title>Books</Title>
             </Header>
 

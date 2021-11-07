@@ -46,7 +46,7 @@ export const Title = styled.Text`
 
 export const InputWrapper = styled.View<IInputWrapperProps>`
   margin-top:${({ marginTop }) => marginTop ?? 0}px;
-  background-color: ${({ theme }) => theme.colors.darkOpacity};
+  background-color: ${({ theme }) => theme.colors.darkOpacity300};
   
   border-radius: 4px;
 `;

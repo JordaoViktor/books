@@ -9,7 +9,8 @@ export default {
     lightenText: "#FFFF",
     darkText: "#333333",
 
-    darkOpacity: "rgba(0,0,0,0.32)"
+    darkOpacity200: "rgba(0,0,0,0.20)",
+    darkOpacity300: "rgba(0,0,0,0.32)",
   },
   fonts: {
     light: "Heebo_300Light",
