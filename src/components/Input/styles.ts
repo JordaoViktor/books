@@ -1,11 +1,15 @@
 import styled from 'styled-components/native';
-import { TextInput } from 'react-native';
+import { TextInput, TextInputProps } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
 
-export const Container = styled(TextInput)`
+interface Props extends TextInputProps {
+  color?: string
+}
+
+export const Container = styled(TextInput) <Props>`
   width: 100%;
   height: 100%;
-  color:${({ theme }) => theme.colors.lightenText};
+  color: ${({ theme, color }) => color ? color : theme.colors.lightenText};
   z-index:2;
   
   font-family: ${({ theme }) => theme.fonts.normal};

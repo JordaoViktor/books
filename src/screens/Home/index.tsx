@@ -1,6 +1,10 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar } from 'react-native';
+import { useTheme } from 'styled-components/native';
+
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
+
+import { Input } from '@components/Input';
 
 import {
   Container,
@@ -9,9 +13,17 @@ import {
   Title,
   LogoutButton,
   LogoutWrapper,
-  LogoutIcon
+  LogoutIcon,
+  SearchBarContainer,
+  SearchBarWrapper,
+  InputBody,
+  InputWrapper,
+  SearchIcon,
+  FilterIcon,
+  FilterIconButton,
+  SearchIconButton
 } from './styles';
-import { useTheme } from 'styled-components/native';
+
 
 export const Home = () => {
 
@@ -41,6 +53,28 @@ export const Home = () => {
             </LogoutButton>
           </LogoutWrapper>
         </Header>
+
+        <SearchBarContainer>
+          <SearchBarWrapper>
+            <InputBody>
+              <InputWrapper>
+                <Input
+                  placeholderTextColor={theme.colors.darkOpacity200}
+                  placeholder="Preocure um livro"
+                  color={theme.colors.darkText}
+                />
+              </InputWrapper>
+            </InputBody>
+
+            <SearchIconButton>
+              <SearchIcon />
+            </SearchIconButton>
+
+            <FilterIconButton>
+              <FilterIcon />
+            </FilterIconButton>
+          </SearchBarWrapper>
+        </SearchBarContainer>
       </Container>
     </>
   );

@@ -22,8 +22,6 @@ export const BackgroundImage = styled.ImageBackground.attrs({
 export const Container = styled.SafeAreaView`
   width:90%;
   height:280px;
-
-  
 `;
 
 export const Header = styled.View`
@@ -32,23 +30,22 @@ export const Header = styled.View`
 
   flex-direction:row;
   align-items:center;
-
 `;
 
 export const Title = styled.Text`
+  margin-left:16px;
+  padding-bottom:45px;
+
   font-family: ${({ theme }) => theme.fonts.light};
   font-size:${RFValue(28)}px;
   color: ${({ theme }) => theme.colors.lightenText};
-
-  margin-left:16px;
-  padding-bottom:45px;
 `;
 
 export const InputWrapper = styled.View<IInputWrapperProps>`
   margin-top:${({ marginTop }) => marginTop ?? 0}px;
-  background-color: ${({ theme }) => theme.colors.darkOpacity300};
-  
   border-radius: 4px;
+  
+  background-color: ${({ theme }) => theme.colors.darkOpacity300};
 `;
 
 export const BackgroundInput = styled.View`
@@ -63,16 +60,15 @@ export const BackgroundInput = styled.View`
 `;
 
 export const InputTitle = styled.Text`
-  color: ${({ theme }) => theme.colors.lightenText};
-  opacity: 0.5;
+  padding: 8px 0 0 15px;
+  margin-bottom: 5px;
+  position:absolute ;
   
   font-family:${({ theme }) => theme.fonts.normal};
   font-size:${RFValue(12)}px;
   
-  position:absolute ;
-
-  padding: 8px 0 0 15px;
-  margin-bottom: 5px;
+  opacity: 0.5;
+  color: ${({ theme }) => theme.colors.lightenText};
 `;
 
 export const ErrorWrapper = styled.View`
@@ -81,15 +77,14 @@ export const ErrorWrapper = styled.View`
 
 export const ButtonWrapper = styled.View`
   width:85px;
-  
   margin-left: -100px;
 `;
 
 export const ButtonText = styled.Text`
   font-family:${({ theme }) => theme.fonts.bold};
   font-size:${RFValue(16)}px;
+  color:${({ theme }) => theme.colors.tertiary};
 
   text-align:center;
-  color:${({ theme }) => theme.colors.tertiary};
   padding-bottom:22px;
 `;
