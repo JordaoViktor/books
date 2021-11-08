@@ -11,6 +11,9 @@ export default {
 
     darkOpacity200: "rgba(0,0,0,0.20)",
     darkOpacity300: "rgba(0,0,0,0.32)",
+    darkOpacity400: "rgba(0,0,0,0.4)",
+
+    transparent: "transparent"
   },
   fonts: {
     light: "Heebo_300Light",

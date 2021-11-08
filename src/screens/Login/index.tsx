@@ -139,7 +139,7 @@ export const Login = () => {
 
                 <ButtonWrapper>
                   <Button onPress={handleSubmit(handleSignIn)}>
-                    <ButtonText>Hello</ButtonText>
+                    <ButtonText>Entrar</ButtonText>
                   </Button>
                 </ButtonWrapper>
               </BackgroundInput>

@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { StatusBar } from 'react-native';
 import { useTheme } from 'styled-components/native';
 
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
 
-import { Input } from '@components/Input';
+import { Button, Input, Modal } from '@components/index';
 
 import {
+  ModalWrapper,
+  ModalCloseHeader,
+  CloseIcon,
   Container,
   Header,
   HeaderLogoWrapper,
@@ -24,10 +27,14 @@ import {
   SearchIconButton
 } from './styles';
 
-
 export const Home = () => {
-
+  const [modalVisible, setModalVisible] = useState(false);
   const theme = useTheme()
+
+  const handleModalInteraction = useCallback(() => {
+    return setModalVisible(!modalVisible);
+  }, [modalVisible]);
+
   return (
     <>
       <StatusBar
@@ -35,6 +42,23 @@ export const Home = () => {
         backgroundColor="transparent"
         translucent
       />
+
+      <Modal
+        visible={modalVisible}
+        onRequestClose={() => handleModalInteraction()}
+      >
+        <ModalWrapper>
+          <ModalCloseHeader>
+            <Button
+              onPress={() => handleModalInteraction()}
+              borderColor={theme.colors.darkOpacity300}
+            >
+              <CloseIcon />
+            </Button>
+          </ModalCloseHeader>
+        </ModalWrapper>
+
+      </Modal>
 
       <Container >
         <Header >
@@ -70,7 +94,7 @@ export const Home = () => {
               <SearchIcon />
             </SearchIconButton>
 
-            <FilterIconButton>
+            <FilterIconButton onPress={() => handleModalInteraction()}>
               <FilterIcon />
             </FilterIconButton>
           </SearchBarWrapper>

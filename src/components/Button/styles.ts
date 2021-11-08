@@ -1,14 +1,31 @@
 import styled from 'styled-components/native';
-import { RectButton } from 'react-native-gesture-handler';
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 
-export const Container = styled(RectButton)`
+interface IButtonProps extends RectButtonProps {
+  backgroundColor?: string;
+  borderColor?: string;
+  color?: string;
+}
+
+export const Container = styled(RectButton) <IButtonProps>`
   padding: 9px;
   height: 36px;
-  width: 100%;
+  
   justify-content:center;
   align-items:center;
+  
+  border-radius: 20px;
+  border-width:1px;
 
+  border-color: ${({ theme, borderColor }) => borderColor
+    ? borderColor
+    : theme.colors.transparent};
+    
+  background-color: ${({ theme, backgroundColor }) => backgroundColor
+    ? backgroundColor
+    : theme.colors.primary};
+`;
 
-  background-color: ${({ theme }) => theme.colors.primary};
-  border-radius: 20px
+export const Label = styled.Text<IButtonProps>`
+  color: ${({ theme, color }) => color ? color : theme.colors.darkText}
 `;

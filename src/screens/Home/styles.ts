@@ -5,6 +5,24 @@ import { RFValue, RFPercentage } from 'react-native-responsive-fontsize';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { RectButton, BorderlessButton } from 'react-native-gesture-handler';
 
+
+export const ModalWrapper = styled.View`
+  margin: 16px 16px 16px 16px;
+  
+  
+`;
+
+export const ModalCloseHeader = styled.View`
+  flex-direction:row;
+  justify-content: flex-end;
+`
+export const CloseIcon = styled(Feather).attrs({
+  name: 'x'
+})`
+  color:${({ theme }) => theme.colors.darkText};
+  font-size:${RFValue(16)}px;
+`;
+
 export const Container = styled.SafeAreaView`
   flex:1;
   background-color:${({ theme }) => theme.colors.background};
