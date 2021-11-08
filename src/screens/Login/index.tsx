@@ -25,6 +25,8 @@ import {
   ButtonText
 } from './styles'
 import { useTheme } from 'styled-components'
+import { useReduxDispatch } from '@hooks/useReduxDispatch'
+import { login } from '@store/slices/user'
 
 interface IFormResponseProps {
   email?: string;
@@ -58,9 +60,12 @@ export const Login = () => {
 
   const navigation = useNavigation<LoginScreenProps>()
   const theme = useTheme()
+  const dispatch = useReduxDispatch()
 
   const handleSignIn = (form: IFormResponseProps) => {
     navigation.navigate('Home')
+    console.log(form)
+    dispatch(login(form))
     // const isInvalid = (value: IFormResponseProps | string | undefined) => !value
     // const isValid = (value: IFormResponseProps) => !!value
 
