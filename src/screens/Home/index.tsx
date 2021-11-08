@@ -1,6 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { StatusBar } from 'react-native';
+
 import { useTheme } from 'styled-components/native';
+import { useNavigation } from '@react-navigation/native';
+
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamListType } from '@routes/main.routes';
 
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
 
@@ -10,6 +15,8 @@ import {
   ModalWrapper,
   ModalCloseHeader,
   CloseIcon,
+  ModalCategoryPick,
+  ModalTitle,
   Container,
   Header,
   HeaderLogoWrapper,
@@ -27,13 +34,19 @@ import {
   SearchIconButton
 } from './styles';
 
+type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
+
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
   const theme = useTheme()
+  const navigation = useNavigation<HomeScreenProps>()
 
   const handleModalInteraction = useCallback(() => {
     return setModalVisible(!modalVisible);
   }, [modalVisible]);
+
+  const handleLogout = () => navigation.navigate('Login')
 
   return (
     <>
@@ -56,6 +69,10 @@ export const Home = () => {
               <CloseIcon />
             </Button>
           </ModalCloseHeader>
+
+          <ModalCategoryPick>
+            <ModalTitle>Selecione a categoria</ModalTitle>
+          </ModalCategoryPick>
         </ModalWrapper>
 
       </Modal>
@@ -72,7 +89,7 @@ export const Home = () => {
           </HeaderLogoWrapper>
 
           <LogoutWrapper>
-            <LogoutButton>
+            <LogoutButton onPress={() => handleLogout()}>
               <LogoutIcon />
             </LogoutButton>
           </LogoutWrapper>

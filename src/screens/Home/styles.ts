@@ -23,6 +23,17 @@ export const CloseIcon = styled(Feather).attrs({
   font-size:${RFValue(16)}px;
 `;
 
+export const ModalCategoryPick = styled.View`
+
+`;
+
+export const ModalTitle = styled.Text`
+  color:${({ theme }) => theme.colors.darkText};
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size: ${RFValue(12)}px;
+  
+`;
+
 export const Container = styled.SafeAreaView`
   flex:1;
   background-color:${({ theme }) => theme.colors.background};
