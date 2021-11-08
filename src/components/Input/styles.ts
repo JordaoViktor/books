@@ -10,8 +10,9 @@ export const Container = styled(TextInput) <Props>`
   width: 100%;
   height: 100%;
   color: ${({ theme, color }) => color ? color : theme.colors.lightenText};
-  z-index:2;
+  z-index:3;
   
   font-family: ${({ theme }) => theme.fonts.normal};
   font-size:${RFValue(16)}px;
+  
 `;

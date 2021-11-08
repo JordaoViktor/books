@@ -31,7 +31,7 @@ export const ModalTitle = styled.Text`
   color:${({ theme }) => theme.colors.darkText};
   font-family: ${({ theme }) => theme.fonts.bold};
   font-size: ${RFValue(12)}px;
-  
+
 `;
 
 export const Container = styled.SafeAreaView`
@@ -67,7 +67,7 @@ export const Title = styled.Text`
   font-size:${RFValue(28)}px;
   color: ${({ theme }) => theme.colors.darkText};
   
-`;
+  `;
 
 export const LogoutButton = styled(RectButton)`
   height: 32px;

@@ -10,14 +10,19 @@ interface IButtonProps extends RectButtonProps {
   borderColor?: string;
   label?: string;
   color?: string;
+  accessible?: boolean
+  accessibilityLabel?: string;
 }
 
 export const Button = ({ borderColor, label, color, backgroundColor, children, ...rest }: IButtonProps) => (
   <Container
     borderColor={borderColor}
     backgroundColor={backgroundColor}
-    {...rest}>
-    {label && <Label>{label}</Label>}
+    accessible
+    accessibilityLabel='Button'
+    {...rest}
+  >
+    {label && <Label color={color}>{label}</Label>}
     {children}
   </Container>
 )

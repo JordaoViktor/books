@@ -78,13 +78,7 @@ export const ErrorWrapper = styled.View`
 export const ButtonWrapper = styled.View`
   width:85px;
   margin-left: -100px;
+  z-index:4;
+  
 `;
 
-export const ButtonText = styled.Text`
-  font-family:${({ theme }) => theme.fonts.bold};
-  font-size:${RFValue(16)}px;
-  color:${({ theme }) => theme.colors.tertiary};
-
-  text-align:center;
-  padding-bottom:22px;
-`;

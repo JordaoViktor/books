@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 interface IButtonProps extends RectButtonProps {
   backgroundColor?: string;
@@ -24,8 +25,15 @@ export const Container = styled(RectButton) <IButtonProps>`
   background-color: ${({ theme, backgroundColor }) => backgroundColor
     ? backgroundColor
     : theme.colors.primary};
+    
 `;
 
 export const Label = styled.Text<IButtonProps>`
-  color: ${({ theme, color }) => color ? color : theme.colors.darkText}
+  justify-content:center;
+  align-items:center;
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-size:${RFValue(16)}px;
+  text-align: center;
+  color: ${({ theme, color }) => color ? color : theme.colors.darkText};
+  margin-top:-5px;
 `;

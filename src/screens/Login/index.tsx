@@ -1,15 +1,22 @@
 import React from 'react'
 import { StatusBar, Keyboard, Alert } from 'react-native'
+
 import { useForm } from "react-hook-form"
+import { useNavigation } from '@react-navigation/native'
+import { useTheme } from 'styled-components'
+import { useReduxDispatch } from '@hooks/useReduxDispatch'
+
+import { login } from '@store/slices/user'
+
 import * as Yup from "yup"
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useNavigation } from '@react-navigation/native'
-import { FormInput, Button } from '@components/index'
 
 import { StackNavigationProp } from '@react-navigation/stack';
-
 import { RootStackParamListType } from '@routes/main.routes'
+
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
+
+import { FormInput, Button } from '@components/index'
 
 import {
   KeyboardDismiss,
@@ -22,11 +29,7 @@ import {
   InputTitle,
   ErrorWrapper,
   ButtonWrapper,
-  ButtonText
 } from './styles'
-import { useTheme } from 'styled-components'
-import { useReduxDispatch } from '@hooks/useReduxDispatch'
-import { login } from '@store/slices/user'
 
 interface IFormResponseProps {
   email?: string;
@@ -138,8 +141,10 @@ export const Login = () => {
                 />
 
                 <ButtonWrapper>
-                  <Button onPress={handleSubmit(handleSignIn)}>
-                    <ButtonText>Entrar</ButtonText>
+                  <Button
+                    color={theme.colors.tertiary}
+                    label="Entrar"
+                    onPress={handleSubmit(handleSignIn)}>
                   </Button>
                 </ButtonWrapper>
               </BackgroundInput>

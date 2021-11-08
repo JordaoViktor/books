@@ -45,8 +45,8 @@ export const Home = () => {
   const handleModalInteraction = useCallback(() => {
     return setModalVisible(!modalVisible);
   }, [modalVisible]);
-
   const handleLogout = () => navigation.navigate('Login')
+  console.log(modalVisible)
 
   return (
     <>
@@ -63,7 +63,7 @@ export const Home = () => {
         <ModalWrapper>
           <ModalCloseHeader>
             <Button
-              onPress={() => handleModalInteraction()}
+              onPress={() => setModalVisible(false)}
               borderColor={theme.colors.darkOpacity300}
             >
               <CloseIcon />
