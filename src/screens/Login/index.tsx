@@ -48,11 +48,11 @@ const schema = Yup.object().shape({
     .string()
     .email('O email é obrigatório')
     .lowercase()
-    .typeError('precisa por email')
+    .typeError('precisa por o email')
     .required('O email é obrigatório'),
   password: Yup
     .string()
-    .typeError('precisa por senha')
+    .typeError('precisa por a senha')
     .required('A senha é obrigatória')
 })
 
@@ -69,6 +69,7 @@ export const Login = () => {
     navigation.navigate('Home')
     console.log(form)
     dispatch(login(form))
+
     // const isInvalid = (value: IFormResponseProps | string | undefined) => !value
     // const isValid = (value: IFormResponseProps) => !!value
 
@@ -99,11 +100,12 @@ export const Login = () => {
       <KeyboardDismiss onPress={Keyboard.dismiss}>
         <BackgroundImage>
           <Container>
-            <Header>
+            <Header accessible accessibilityLabel='Ioasys Books'>
               <IoasysLogo
                 width={120}
                 height={40}
                 fill={theme.colors.lightenText}
+                accessibilityLabel='Ioasys'
               />
 
               <Title>Books</Title>
@@ -121,6 +123,8 @@ export const Login = () => {
                   name="email"
                   control={control}
                   keyboardType="email-address"
+                  accessible
+                  accessibilityLabel='Email address input'
                 />
               </BackgroundInput>
             </InputWrapper>
@@ -129,7 +133,12 @@ export const Login = () => {
               <InputTitle>Senha</InputTitle>
 
               <ErrorWrapper>
-                <InputTitle>{errors && errors.password?.message}</InputTitle>
+                <InputTitle
+                  accessible
+                  accessibilityValue={{ text: errors ? `${errors.password?.message}` : '' }}
+                >
+                  {errors && errors.password?.message}
+                </InputTitle>
               </ErrorWrapper>
 
               <BackgroundInput>
@@ -138,13 +147,16 @@ export const Login = () => {
                   control={control}
                   secureTextEntry
                   autoCorrect={false}
+                  accessibilityLabel='Password input'
                 />
 
                 <ButtonWrapper>
                   <Button
                     color={theme.colors.tertiary}
                     label="Entrar"
-                    onPress={handleSubmit(handleSignIn)}>
+                    onPress={handleSubmit(handleSignIn)}
+                    accessibilityLabel='Sign in Button'
+                  >
                   </Button>
                 </ButtonWrapper>
               </BackgroundInput>

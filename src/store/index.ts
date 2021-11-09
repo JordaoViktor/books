@@ -11,7 +11,8 @@ export const store = configureStore({
     counter: counterReducer,
     user: userReducer,
   },
-  middleware: [sagaMiddleware]
+  middleware: [sagaMiddleware],
+
 })
 
 sagaMiddleware.run(rootSagas)

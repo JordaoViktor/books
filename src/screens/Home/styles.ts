@@ -3,18 +3,27 @@ import { ifIphoneX } from 'react-native-iphone-x-helper'
 import { RFValue, RFPercentage } from 'react-native-responsive-fontsize';
 
 import { Feather, Ionicons } from '@expo/vector-icons';
-import { RectButton, BorderlessButton } from 'react-native-gesture-handler';
+import { RectButton, BorderlessButton, RectButtonProps } from 'react-native-gesture-handler';
 
+interface LogoutProps extends RectButtonProps {
+  accessible: boolean;
+  accessibilityLabel: string;
+}
 
+interface FilterButtonProps extends RectButtonProps {
+  accessible: boolean;
+  accessibilityLabel: string;
+}
 export const ModalWrapper = styled.View`
   margin: 16px 16px 16px 16px;
-  
-  
-`;
+  background-color: ${({ theme }) => theme.colors.primary};
+
+  `;
 
 export const ModalCloseHeader = styled.View`
   flex-direction:row;
   justify-content: flex-end;
+  background-color: ${({ theme }) => theme.colors.primary};
 `
 export const CloseIcon = styled(Feather).attrs({
   name: 'x'
@@ -69,7 +78,7 @@ export const Title = styled.Text`
   
   `;
 
-export const LogoutButton = styled(RectButton)`
+export const LogoutButton = styled(RectButton) <LogoutProps>`
   height: 32px;
   width: 32px;
   
@@ -80,6 +89,7 @@ export const LogoutButton = styled(RectButton)`
   border-width: 1px;
 
   border-color: ${({ theme }) => theme.colors.darkOpacity200};
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const LogoutIcon = styled(Feather).attrs({
@@ -123,7 +133,9 @@ export const InputWrapper = styled.View`
   margin-left:11px;
 `;
 
-export const SearchIconButton = styled.TouchableOpacity``;
+export const SearchIconButton = styled.TouchableOpacity`
+  z-index:5;
+`;
 
 export const SearchIcon = styled(Feather).attrs({
   name: 'search'
@@ -133,7 +145,7 @@ export const SearchIcon = styled(Feather).attrs({
   font-size:${RFValue(20)}px;
 `;
 
-export const FilterIconButton = styled(BorderlessButton)`
+export const FilterIconButton = styled.TouchableOpacity <FilterButtonProps>`
   padding-left:10px;
 `;
 

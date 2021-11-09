@@ -1,7 +1,8 @@
 import { api } from "@services/api";
-import { all, call, put, takeLatest } from "redux-saga/effects";
+import { all, call, put, select, takeEvery, takeLatest } from "redux-saga/effects";
 
 import { loginFailure, loginSuccess, login } from '@store/slices/user/index'
+import { Alert } from "react-native";
 
 interface IUserSignInAuth {
   payload: {
@@ -22,7 +23,6 @@ export function* loginSaga({ payload: { email, password } }: IUserSignInAuth) {
     console.log(data)
   } catch (error) {
     if (error instanceof Error) {
-
       yield put(
         loginFailure({
           error: true,
@@ -35,6 +35,6 @@ export function* loginSaga({ payload: { email, password } }: IUserSignInAuth) {
 
 export default function* listener() {
   yield all([
-    takeLatest(login().type, loginSaga)
+    takeLatest(login().type, loginSaga),
   ])
 }

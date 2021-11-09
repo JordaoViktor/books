@@ -17,10 +17,11 @@ export const MainRoutes = () => (
     screenOptions={{ headerShown: false }}
     initialRouteName="Splash"
   >
+    {/* <Screen name="Splash" component={Splash} /> */}
+
     <Screen name="Login" component={Login} />
 
     <Screen name="Home" component={Home} />
 
-    {/* <Screen name="Splash" component={Splash} /> */}
   </Navigator>
 );

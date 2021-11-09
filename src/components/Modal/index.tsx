@@ -5,6 +5,8 @@ interface Props {
   visible: boolean;
   onRequestClose: () => void;
   children?: React.ReactNode;
+  accessible: boolean;
+  accessibilityLabel: string;
 }
 
 export const Modal = ({ visible, children, ...rest }: Props) => {

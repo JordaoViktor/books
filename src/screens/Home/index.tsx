@@ -42,9 +42,8 @@ export const Home = () => {
   const theme = useTheme()
   const navigation = useNavigation<HomeScreenProps>()
 
-  const handleModalInteraction = useCallback(() => {
-    return setModalVisible(!modalVisible);
-  }, [modalVisible]);
+  const handleModalInteraction = useCallback(() => setModalVisible(!modalVisible), [modalVisible]);
+
   const handleLogout = () => navigation.navigate('Login')
   console.log(modalVisible)
 
@@ -59,37 +58,46 @@ export const Home = () => {
       <Modal
         visible={modalVisible}
         onRequestClose={() => handleModalInteraction()}
+
       >
-        <ModalWrapper>
+        <ModalWrapper >
           <ModalCloseHeader>
             <Button
-              onPress={() => setModalVisible(false)}
+              accessible
+              accessibilityLabel='Close modal'
+              onPress={() => handleModalInteraction()}
               borderColor={theme.colors.darkOpacity300}
+
             >
               <CloseIcon />
             </Button>
+
           </ModalCloseHeader>
 
           <ModalCategoryPick>
-            <ModalTitle>Selecione a categoria</ModalTitle>
+            <ModalTitle accessible
+              accessibilityLabel='Selecione a categoria'>Selecione a categoria</ModalTitle>
           </ModalCategoryPick>
         </ModalWrapper>
-
       </Modal>
 
-      <Container >
-        <Header >
+      <Container>
+        <Header accessible accessibilityLabel='Ioasys Books'>
           <HeaderLogoWrapper >
             <IoasysLogo
               width={120}
               height={40}
               fill={theme.colors.darkText}
+              accessible accessibilityLabel='Ioasys'
             />
             <Title>Books</Title>
           </HeaderLogoWrapper>
 
           <LogoutWrapper>
-            <LogoutButton onPress={() => handleLogout()}>
+            <LogoutButton
+              accessible
+              accessibilityLabel='Logout Button'
+              onPress={() => handleLogout()}>
               <LogoutIcon />
             </LogoutButton>
           </LogoutWrapper>
@@ -103,15 +111,23 @@ export const Home = () => {
                   placeholderTextColor={theme.colors.darkOpacity200}
                   placeholder="Preocure um livro"
                   color={theme.colors.darkText}
+                  accessible
+                  accessibilityLabel='Search a book input'
                 />
               </InputWrapper>
             </InputBody>
 
-            <SearchIconButton>
+            <SearchIconButton
+              accessible
+              accessibilityLabel='Search Button'
+            >
               <SearchIcon />
             </SearchIconButton>
 
-            <FilterIconButton onPress={() => handleModalInteraction()}>
+            <FilterIconButton
+              accessible
+              accessibilityLabel='Filter Button'
+              onPress={() => handleModalInteraction()}>
               <FilterIcon />
             </FilterIconButton>
           </SearchBarWrapper>
