@@ -5,13 +5,11 @@ interface Props {
   visible: boolean;
   onRequestClose: () => void;
   children?: React.ReactNode;
-  accessible: boolean;
-  accessibilityLabel: string;
 }
 
 export const Modal = ({ visible, children, ...rest }: Props) => {
   return (
-    <ModalFilter {...rest} visible={visible}>
+    <ModalFilter {...rest} visible={visible} testID='modal'>
       <ModalBackground>
         <ModalContainer>
           {children}

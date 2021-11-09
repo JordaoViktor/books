@@ -5,4 +5,4 @@ interface Props extends TextInputProps {
   color?: string;
 }
 
-export const Input = ({ color, ...rest }: Props) => <Container color={color}  {...rest} />
+export const Input = ({ color, ...rest }: Props) => <Container testID='input' color={color}  {...rest} />

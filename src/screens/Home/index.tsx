@@ -58,7 +58,8 @@ export const Home = () => {
       <Modal
         visible={modalVisible}
         onRequestClose={() => handleModalInteraction()}
-
+        accessible
+        accessibilityLabel='Modal'
       >
         <ModalWrapper >
           <ModalCloseHeader>
@@ -67,7 +68,6 @@ export const Home = () => {
               accessibilityLabel='Close modal'
               onPress={() => handleModalInteraction()}
               borderColor={theme.colors.darkOpacity300}
-
             >
               <CloseIcon />
             </Button>
@@ -75,20 +75,23 @@ export const Home = () => {
           </ModalCloseHeader>
 
           <ModalCategoryPick>
-            <ModalTitle accessible
-              accessibilityLabel='Selecione a categoria'>Selecione a categoria</ModalTitle>
+            <ModalTitle>Selecione a categoria</ModalTitle>
           </ModalCategoryPick>
         </ModalWrapper>
       </Modal>
 
       <Container>
-        <Header accessible accessibilityLabel='Ioasys Books'>
+        <Header
+          accessible
+          accessibilityLabel='Ioasys Books'
+        >
           <HeaderLogoWrapper >
             <IoasysLogo
               width={120}
               height={40}
               fill={theme.colors.darkText}
-              accessible accessibilityLabel='Ioasys'
+              accessible
+              accessibilityLabel='Ioasys'
             />
             <Title>Books</Title>
           </HeaderLogoWrapper>

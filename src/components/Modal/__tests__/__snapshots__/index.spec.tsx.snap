@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input Component matches modal snapshot 1`] = `
+<Modal
+  animationType="fade"
+  hardwareAccelerated={false}
+  onRequestClose={[MockFunction]}
+  style={
+    Array [
+      Object {},
+    ]
+  }
+  testID="modal"
+  transparent={true}
+  visible={true}
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0,0,0,0.4)",
+          "height": "100%",
+          "justifyContent": "center",
+          "width": "100%",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#FFFF",
+            "borderRadius": 4,
+            "height": "70%",
+            "marginTop": 50,
+            "width": "90%",
+          },
+        ]
+      }
+    />
+  </RCTSafeAreaView>
+</Modal>
+`;
