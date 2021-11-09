@@ -6,7 +6,7 @@ import { Container } from './styles';
 import { Input } from '../Input';
 
 interface Props extends TextInputProps {
-  control: Control;
+  control?: Control;
   name: string;
 }
 

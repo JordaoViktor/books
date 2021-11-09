@@ -1,4 +1,5 @@
 import React from 'react';
+import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react-native'
 import { ThemeProvider } from 'styled-components/native'
 import theme from '@styles/theme'
@@ -15,17 +16,30 @@ const Provider = ({ children }: IProviderProps) => (
 );
 
 describe('Input Component', () => {
-  it('ensure button receives do not some color', () => {
-    const { getByTestId } = render(<Input />, { wrapper: Provider })
+  test('matches input snapshot', () => {
 
-    const inputComponent = getByTestId('input')
-    expect(inputComponent.props.style[0].color).toEqual("#FFFF")
-  })
+    const inputRender = renderer
+      .create(
+        <ThemeProvider theme={theme} >
+          <Input />
+        </ThemeProvider>)
+      .toJSON();
+
+    expect(inputRender).toMatchSnapshot();
+
+  });
 
   it('ensure button receives some color', () => {
     const { getByTestId } = render(<Input color="#FAFA" />, { wrapper: Provider })
 
     const inputComponent = getByTestId('input')
     expect(inputComponent.props.style[0].color).toEqual("#FAFA")
+  })
+
+  it('ensure button receives do not some color', () => {
+    const { getByTestId } = render(<Input />, { wrapper: Provider })
+
+    const inputComponent = getByTestId('input')
+    expect(inputComponent.props.style[0].color).toEqual("#FFFF")
   })
 })

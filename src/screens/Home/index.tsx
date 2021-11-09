@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { StatusBar } from 'react-native';
+import { Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-native';
 
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
@@ -80,62 +80,64 @@ export const Home = () => {
         </ModalWrapper>
       </Modal>
 
-      <Container>
-        <Header
-          accessible
-          accessibilityLabel='Ioasys Books'
-        >
-          <HeaderLogoWrapper >
-            <IoasysLogo
-              width={120}
-              height={40}
-              fill={theme.colors.darkText}
-              accessible
-              accessibilityLabel='Ioasys'
-            />
-            <Title>Books</Title>
-          </HeaderLogoWrapper>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <Container>
+          <Header
+            accessible
+            accessibilityLabel='Ioasys Books'
+          >
+            <HeaderLogoWrapper >
+              <IoasysLogo
+                width={120}
+                height={40}
+                fill={theme.colors.darkText}
+                accessible
+                accessibilityLabel='Ioasys'
+              />
+              <Title>Books</Title>
+            </HeaderLogoWrapper>
 
-          <LogoutWrapper>
-            <LogoutButton
-              accessible
-              accessibilityLabel='Logout Button'
-              onPress={() => handleLogout()}>
-              <LogoutIcon />
-            </LogoutButton>
-          </LogoutWrapper>
-        </Header>
+            <LogoutWrapper>
+              <LogoutButton
+                accessible
+                accessibilityLabel='Logout Button'
+                onPress={() => handleLogout()}>
+                <LogoutIcon />
+              </LogoutButton>
+            </LogoutWrapper>
+          </Header>
 
-        <SearchBarContainer>
-          <SearchBarWrapper>
-            <InputBody>
-              <InputWrapper>
-                <Input
-                  placeholderTextColor={theme.colors.darkOpacity200}
-                  placeholder="Preocure um livro"
-                  color={theme.colors.darkText}
-                  accessible
-                  accessibilityLabel='Search a book input'
-                />
-              </InputWrapper>
-            </InputBody>
+          <SearchBarContainer>
+            <SearchBarWrapper>
+              <InputBody>
+                <InputWrapper>
+                  <Input
+                    placeholderTextColor={theme.colors.darkOpacity200}
+                    placeholder="Preocure um livro"
+                    color={theme.colors.darkText}
+                    accessible
+                    accessibilityLabel='Search a book input'
+                  />
+                </InputWrapper>
+              </InputBody>
 
-            <SearchIconButton
-              accessible
-              accessibilityLabel='Search Button'
-            >
-              <SearchIcon />
-            </SearchIconButton>
+              <SearchIconButton
+                accessible
+                accessibilityLabel='Search Button'
+              >
+                <SearchIcon />
+              </SearchIconButton>
 
-            <FilterIconButton
-              accessible
-              accessibilityLabel='Filter Button'
-              onPress={() => handleModalInteraction()}>
-              <FilterIcon />
-            </FilterIconButton>
-          </SearchBarWrapper>
-        </SearchBarContainer>
-      </Container>
+              <FilterIconButton
+                accessible
+                accessibilityLabel='Filter Button'
+                onPress={() => handleModalInteraction()}>
+                <FilterIcon />
+              </FilterIconButton>
+            </SearchBarWrapper>
+          </SearchBarContainer>
+        </Container>
+      </TouchableWithoutFeedback>
     </>
   );
 }
