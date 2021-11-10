@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import { Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-native';
 
 import { useTheme } from 'styled-components/native';
@@ -33,22 +33,28 @@ import {
   FilterIconButton,
   SearchIconButton
 } from './styles';
+import { useReduxDispatch, useReduxSelector } from '@hooks/index';
+import { fetchBooks } from '@store/slices/books';
 
 type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 
-interface IHomeProps {
-  navigation?: HomeScreenProps
-}
+
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
-
+  const dispatch = useReduxDispatch()
+  const books = useReduxSelector((store) => console.log(store));
   const theme = useTheme()
   const navigation = useNavigation<HomeScreenProps>()
 
   const handleModalInteraction = useCallback(() => setModalVisible(!modalVisible), [modalVisible]);
 
   const handleLogout = () => navigation.navigate('Login')
-  console.log(modalVisible)
+
+
+  useEffect(() => {
+
+    dispatch(fetchBooks())
+  }, [])
 
   return (
     <>

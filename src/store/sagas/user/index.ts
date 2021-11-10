@@ -20,21 +20,23 @@ export function* loginSaga({ payload: { email, password } }: IUserSignInAuth) {
       { email, password }
     );
 
-    const user = { ...data, token: headers['access-token'] };
+    const user = { ...data, token: headers['authorization'] };
 
     console.log('Im a user:', user)
 
     yield call(AsyncStorage.setItem, '@user', JSON.stringify(user));
     yield put(loginSuccess({ data }));
-
+    console.log('headers dude: ', headers)
+    console.log('token dude: ', user.token)
     api.interceptors.request.use((config: any) => {
 
-      config.headers.authorization = user.token
+      config.headers.authorization = `Bearer ${user.token}`
+      config.headers['refresh-token'] = headers['refresh-token']
       config.headers['Content-Type'] = 'application/json';
 
       return config;
     });
-    console.log('im a data: ', data)
+
   } catch (error) {
     if (error instanceof Error) {
       yield put(

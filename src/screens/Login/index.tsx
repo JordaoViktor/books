@@ -44,7 +44,6 @@ type TValidationField = [
 
 type LoginScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 
-
 const schema = Yup.object().shape({
   email: Yup
     .string()
@@ -57,11 +56,6 @@ const schema = Yup.object().shape({
     .typeError('precisa por a senha')
     .required('A senha é obrigatória')
 })
-
-
-
-
-
 
 export const Login = () => {
   const { control, handleSubmit, formState: { errors } } = useForm({
@@ -77,8 +71,8 @@ export const Login = () => {
     console.log(form)
     dispatch(login(form))
 
-    // const isInvalid = (value: IFormResponseProps | string | undefined) => !value
-    // const isValid = (value: IFormResponseProps) => !!value
+    const isInvalid = (value: IFormResponseProps | string | undefined) => !value
+    const isValid = (value: IFormResponseProps) => !!value
 
 
     // const validationFields: TValidationField[] = [
