@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches formInput snapshot 1`] = `
+exports[`matches button snapshot 1`] = `
 <View
   accessible={true}
   focusable={false}

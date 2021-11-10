@@ -36,6 +36,9 @@ import {
 
 type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 
+interface IHomeProps {
+  navigation?: HomeScreenProps
+}
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
 

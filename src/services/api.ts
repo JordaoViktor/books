@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from '@env'
 
 const api = axios.create({
-  baseURL: `${BASE_URL}/api/v1`
+  baseURL: `${BASE_URL}/api/v1`,
 });
 
 export { api };

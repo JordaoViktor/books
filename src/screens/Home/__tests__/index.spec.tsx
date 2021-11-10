@@ -3,15 +3,15 @@ import renderer from 'react-test-renderer';
 import { render } from '@testing-library/react-native'
 import { ThemeProvider } from 'styled-components/native'
 import theme from '@styles/theme'
-import { Button } from '../index';
+import { Home } from '../index';
 
-test('matches button snapshot', () => {
+test('matches home screen snapshot', async () => {
   const FormInputRender = renderer
     .create(
       <ThemeProvider theme={theme} >
-        <Button />
+        <Home />
       </ThemeProvider>)
     .toJSON();
 
-  expect(FormInputRender).toMatchSnapshot();
+  await expect(FormInputRender).toMatchSnapshot();
 });

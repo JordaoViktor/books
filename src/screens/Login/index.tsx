@@ -17,7 +17,8 @@ import { RootStackParamListType } from '@routes/main.routes'
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
 
 import { FormInput, Button } from '@components/index'
-
+import { Provider } from 'react-redux'
+import configureStore from 'redux-mock-store'
 import {
   KeyboardDismiss,
   BackgroundImage,
@@ -43,6 +44,7 @@ type TValidationField = [
 
 type LoginScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 
+
 const schema = Yup.object().shape({
   email: Yup
     .string()
@@ -55,6 +57,11 @@ const schema = Yup.object().shape({
     .typeError('precisa por a senha')
     .required('A senha é obrigatória')
 })
+
+
+
+
+
 
 export const Login = () => {
   const { control, handleSubmit, formState: { errors } } = useForm({
@@ -97,7 +104,7 @@ export const Login = () => {
         translucent
       />
 
-      <KeyboardDismiss onPress={Keyboard.dismiss}>
+      <KeyboardDismiss onPress={Keyboard.dismiss} testID='login-screen'>
         <BackgroundImage>
           <Container>
             <Header accessible accessibilityLabel='Ioasys Books'>
@@ -106,6 +113,7 @@ export const Login = () => {
                 height={40}
                 fill={theme.colors.lightenText}
                 accessibilityLabel='Ioasys'
+
               />
 
               <Title>Books</Title>

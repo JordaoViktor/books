@@ -3,6 +3,7 @@ import { all, call, put, select, takeEvery, takeLatest } from "redux-saga/effect
 
 import { loginFailure, loginSuccess, login } from '@store/slices/user/index'
 import { Alert } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 interface IUserSignInAuth {
   payload: {
@@ -13,14 +14,27 @@ interface IUserSignInAuth {
 
 export function* loginSaga({ payload: { email, password } }: IUserSignInAuth) {
   try {
-    const { data } = yield call(
+    const { data, headers } = yield call(
       api.post,
       '/auth/sign-in',
       { email, password }
     );
 
+    const user = { ...data, token: headers['access-token'] };
+
+    console.log('Im a user:', user)
+
+    yield call(AsyncStorage.setItem, '@user', JSON.stringify(user));
     yield put(loginSuccess({ data }));
-    console.log(data)
+
+    api.interceptors.request.use((config: any) => {
+
+      config.headers.authorization = user.token
+      config.headers['Content-Type'] = 'application/json';
+
+      return config;
+    });
+    console.log('im a data: ', data)
   } catch (error) {
     if (error instanceof Error) {
       yield put(
