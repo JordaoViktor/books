@@ -1,7 +1,9 @@
 import React from 'react';
-import { useNavigation, useRoute } from '@react-navigation/native';
 
-import { useTheme } from 'styled-components';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useTheme } from 'styled-components/native';
+
+import { BookDetailDTO } from '@services/types';
 
 import { Button } from '@components/Button';
 import {
@@ -15,7 +17,6 @@ import {
   ContentWrapper,
   BookTitle
 } from './styles';
-import { BookDetailDTO } from '@services/types';
 
 interface IRouteParamsProps {
   params: {
@@ -32,7 +33,9 @@ export const BookDetail = () => {
   const {
     params
   } = route?.params
-  const { imageUrl, title } = params.item as BookDetailDTO
+  // const { imageUrl, title } = params!.item || {} as BookDetailDTO
+  const imageUrl = params?.item?.imageUrl
+  const title = params?.item?.title
 
   const handlePreviousPage = () => navigation.goBack()
 

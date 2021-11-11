@@ -50,7 +50,7 @@ export const Home = () => {
   const handleModalInteraction = useCallback(() => setModalVisible(!modalVisible), [modalVisible]);
 
   const handleLogout = () => navigation.navigate('Login')
-  console.log(books)
+
   useEffect(() => {
     dispatch(fetchBooks())
   }, [dispatch])

@@ -46,12 +46,6 @@ describe('Login Screen', () => {
     afterAll(() => { jest.useFakeTimers() })
     afterEach(cleanup)
 
-    // const { getByTestId, debug } = render(<Login />, { wrapper: ReduxProvider })
-    // const screenRender = getByTestId('login-screen')
-
-    // console.log('screen render: ', screenRender)
-    // console.log(debug)
-
     const tree = renderer
       .create(
         <ReduxProvider >
@@ -60,14 +54,8 @@ describe('Login Screen', () => {
       )
       .toJSON()
 
-    await expect(tree).toMatchSnapshot()
-    // const FormInputRender = renderer
-    //   .create(
-    //     <Login />
-    //     , { wrapper: ()=> ReduxProvider })
-    //   .toJSON();
+    expect(tree).toMatchSnapshot()
 
-    // await expect(FormInputRender).toMatchSnapshot();
   });
 
 })
