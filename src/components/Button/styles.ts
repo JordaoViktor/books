@@ -34,5 +34,5 @@ export const Label = styled.Text<IButtonProps>`
   font-size:${RFValue(16)}px;
   text-align: center;
   color: ${({ theme, color }) => color ? color : theme.colors.darkText};
-  margin-top:-5px;
+  margin-top:-2px;
 `;

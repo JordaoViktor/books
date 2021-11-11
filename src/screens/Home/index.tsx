@@ -53,7 +53,6 @@ export const Home = () => {
 
 
   useEffect(() => {
-
     dispatch(fetchBooks())
   }, [dispatch])
 

@@ -34,7 +34,6 @@ export const Header = styled.View`
 
 export const Title = styled.Text`
   margin-left:16px;
-  padding-bottom:45px;
 
   font-family: ${({ theme }) => theme.fonts.light};
   font-size:${RFValue(28)}px;

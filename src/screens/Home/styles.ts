@@ -56,7 +56,7 @@ export const Header = styled.View`
 
   flex-direction:row;
   align-items:center;
-
+  
   justify-content:space-between;
   margin-top: ${ifIphoneX(20, 30)}px;
   margin-bottom:34px;
@@ -71,8 +71,6 @@ export const HeaderLogoWrapper = styled.View`
 
 export const Title = styled.Text`
   margin-left:16px;
-  padding-bottom:45px;
-  padding-top:-10px;
 
   font-family: ${({ theme }) => theme.fonts.light};
   font-size:${RFValue(28)}px;
