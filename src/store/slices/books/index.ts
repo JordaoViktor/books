@@ -12,7 +12,6 @@ const bookSlice = createSlice({
   initialState,
   reducers: {
     fetchBooks(draft) {
-
       draft.error = null;
       draft.isLoading = true;
     },

@@ -3,7 +3,7 @@ import { StatusBar, Keyboard, Alert } from 'react-native'
 
 import { useForm } from "react-hook-form"
 import { useNavigation } from '@react-navigation/native'
-import { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components/native'
 import { useReduxDispatch } from '@hooks/useReduxDispatch'
 
 import { login } from '@store/slices/user'
@@ -126,6 +126,7 @@ export const Login = () => {
                   control={control}
                   keyboardType="email-address"
                   accessible
+                  autoCapitalize="none"
                   accessibilityLabel='Email address input'
                 />
               </BackgroundInput>

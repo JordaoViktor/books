@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Screen matches login screen snapshot 1`] = `
+<View
+  accessibilityIgnoresInvertColors={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "flexBasis": 0,
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Image
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    resizeMode="cover"
+    source={1}
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": undefined,
+          "width": undefined,
+        },
+        undefined,
+      ]
+    }
+    testID="login-screen"
+  />
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "height": 280,
+          "width": "90%",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityLabel="Ioasys Books"
+      accessible={true}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "height": 40,
+            "width": "100%",
+          },
+        ]
+      }
+    >
+      SvgMock
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFF",
+              "fontFamily": "Heebo_300Light",
+              "fontSize": 55,
+              "marginLeft": 16,
+            },
+          ]
+        }
+      >
+        Books
+      </Text>
+    </View>
+    <View
+      marginTop={50}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0,0,0,0.32)",
+            "borderRadius": 4,
+            "marginTop": 50,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFF",
+              "fontFamily": "Heebo_400Regular",
+              "fontSize": 24,
+              "marginBottom": 5,
+              "opacity": 0.5,
+              "paddingBottom": 0,
+              "paddingLeft": 15,
+              "paddingRight": 0,
+              "paddingTop": 8,
+              "position": "absolute",
+            },
+          ]
+        }
+      >
+        Email
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#FFFF",
+                "fontFamily": "Heebo_400Regular",
+                "fontSize": 24,
+                "marginBottom": 5,
+                "opacity": 0.5,
+                "paddingBottom": 0,
+                "paddingLeft": 15,
+                "paddingRight": 0,
+                "paddingTop": 8,
+                "position": "absolute",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 60,
+              "opacity": 1,
+              "paddingLeft": 15,
+              "paddingTop": 15,
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <TextInput
+            accessibilityLabel="Email address input"
+            accessible={true}
+            allowFontScaling={true}
+            autoCapitalize="none"
+            keyboardType="email-address"
+            onChangeText={[Function]}
+            rejectResponderTermination={true}
+            style={
+              Array [
+                Object {
+                  "color": "#FFFF",
+                  "fontFamily": "Heebo_400Regular",
+                  "fontSize": 31,
+                  "height": "100%",
+                  "width": "100%",
+                  "zIndex": 3,
+                },
+              ]
+            }
+            testID="input"
+            underlineColorAndroid="transparent"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      marginTop={16}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "rgba(0,0,0,0.32)",
+            "borderRadius": 4,
+            "marginTop": 16,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#FFFF",
+              "fontFamily": "Heebo_400Regular",
+              "fontSize": 24,
+              "marginBottom": 5,
+              "opacity": 0.5,
+              "paddingBottom": 0,
+              "paddingLeft": 15,
+              "paddingRight": 0,
+              "paddingTop": 8,
+              "position": "absolute",
+            },
+          ]
+        }
+      >
+        Senha
+      </Text>
+      <View
+        style={
+          Array [
+            Object {
+              "marginLeft": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          accessibilityValue={
+            Object {
+              "text": "undefined",
+            }
+          }
+          accessible={true}
+          style={
+            Array [
+              Object {
+                "color": "#FFFF",
+                "fontFamily": "Heebo_400Regular",
+                "fontSize": 24,
+                "marginBottom": 5,
+                "opacity": 0.5,
+                "paddingBottom": 0,
+                "paddingLeft": 15,
+                "paddingRight": 0,
+                "paddingTop": 8,
+                "position": "absolute",
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 60,
+              "opacity": 1,
+              "paddingLeft": 15,
+              "paddingTop": 15,
+              "width": "100%",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <TextInput
+            accessibilityLabel="Password input"
+            allowFontScaling={true}
+            autoCorrect={false}
+            onChangeText={[Function]}
+            rejectResponderTermination={true}
+            secureTextEntry={true}
+            style={
+              Array [
+                Object {
+                  "color": "#FFFF",
+                  "fontFamily": "Heebo_400Regular",
+                  "fontSize": 31,
+                  "height": "100%",
+                  "width": "100%",
+                  "zIndex": 3,
+                },
+              ]
+            }
+            testID="input"
+            underlineColorAndroid="transparent"
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "marginLeft": -100,
+                "width": 85,
+                "zIndex": 4,
+              },
+            ]
+          }
+        >
+          <View
+            accessibilityLabel="Sign in Button"
+            accessible={true}
+            focusable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FFFF",
+                "borderColor": "transparent",
+                "borderRadius": 20,
+                "borderWidth": 1,
+                "height": 36,
+                "justifyContent": "center",
+                "opacity": 1,
+                "paddingBottom": 9,
+                "paddingLeft": 9,
+                "paddingRight": 9,
+                "paddingTop": 9,
+              }
+            }
+          >
+            <Text
+              color="#AB2680"
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "color": "#AB2680",
+                    "fontFamily": "Heebo_500Medium",
+                    "fontSize": 31,
+                    "justifyContent": "center",
+                    "marginTop": -2,
+                    "textAlign": "center",
+                  },
+                ]
+              }
+            >
+              Entrar
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;

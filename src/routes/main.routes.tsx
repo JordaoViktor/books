@@ -3,12 +3,13 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Home, Login, BookDetail } from '@screens/index';
+import { BookDetailDTO } from '@services/types';
 
 export type RootStackParamListType = {
   Splash: undefined;
   Login: undefined;
   Home: undefined;
-  BookDetail: undefined;
+  BookDetail: { params: { item: BookDetailDTO } };
 };
 
 const { Navigator, Screen } = createNativeStackNavigator<RootStackParamListType>();

@@ -3,6 +3,8 @@ import { FlatList, Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-n
 
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
+import { useReduxDispatch, useReduxSelector } from '@hooks/index';
+import { fetchBooks } from '@store/slices/books';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamListType } from '@routes/main.routes';
@@ -34,24 +36,21 @@ import {
   SearchIconButton,
   CardsContainer
 } from './styles';
-import { useReduxDispatch, useReduxSelector } from '@hooks/index';
-import { fetchBooks } from '@store/slices/books';
 
 type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
-
+type BookDetailScreenProps = StackNavigationProp<RootStackParamListType, 'BookDetail'>
 
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useReduxDispatch()
-  const books = useReduxSelector((store) => store.books.data?.data);
+  const books = useReduxSelector((store) => store.books?.data?.data)
   const theme = useTheme()
-  const navigation = useNavigation<HomeScreenProps>()
+  const navigation = useNavigation<HomeScreenProps | BookDetailScreenProps>()
 
   const handleModalInteraction = useCallback(() => setModalVisible(!modalVisible), [modalVisible]);
 
   const handleLogout = () => navigation.navigate('Login')
-
-
+  console.log(books)
   useEffect(() => {
     dispatch(fetchBooks())
   }, [dispatch])
@@ -148,7 +147,7 @@ export const Home = () => {
           <CardsContainer>
             <FlatList
               data={books}
-              keyExtractor={({ item }) => String(item?.id)}
+              keyExtractor={(item) => String(item?.id)}
               renderItem={({ item }) => <Card onPress={() => { navigation.navigate('BookDetail', { params: { item } }) }}  {...item} />}
             />
           </CardsContainer>

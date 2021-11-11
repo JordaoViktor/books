@@ -15,18 +15,27 @@ import {
   ContentWrapper,
   BookTitle
 } from './styles';
+import { BookDetailDTO } from '@services/types';
 
+interface IRouteParamsProps {
+  params: {
+    item: BookDetailDTO | undefined
+  }
+}
 export const BookDetail = () => {
-
   const theme = useTheme()
   const navigation = useNavigation()
-  const route = useRoute();
+  const route = useRoute() as {
+    params: IRouteParamsProps
+  }
+
   const {
     params
-  } = route?.params;
-  const { imageUrl, title } = params.item
-  console.log(params.item)
+  } = route?.params
+  const { imageUrl, title } = params.item as BookDetailDTO
+
   const handlePreviousPage = () => navigation.goBack()
+
   return (
     <Container>
       <ExitContainer>

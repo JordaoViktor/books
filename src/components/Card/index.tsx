@@ -18,10 +18,11 @@ interface ICardProps extends TouchableOpacityProps {
   authors: string[];
   category: string
   description: string;
-  pageCount: string;
+  pageCount: number
   publisher: string;
-  published: string;
+  published: number
   imageUrl: string;
+  onPress: () => void;
 }
 
 export const Card = ({
@@ -54,3 +55,4 @@ export const Card = ({
   </Container>
 )
 
+export default memo(Card)
