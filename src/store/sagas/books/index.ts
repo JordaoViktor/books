@@ -9,8 +9,8 @@ export function* fetchBooksSaga() {
       api.get,
       '/books/?page=1&amount=25&category=biographies',
     );
-    console.log('aqui')
-    console.log('Im a book:', data)
+    // console.log('aqui')
+    // console.log('Im a book:', data)
 
     yield put(fetchBooksSuccess({ data }));
   } catch (error) {

@@ -156,3 +156,10 @@ export const FilterIcon = styled(Ionicons).attrs({
 })`
   font-size:${RFValue(22)}px;
 `
+
+export const CardsContainer = styled.View`
+  width:100%;
+  height:100%;
+
+  margin: 32px 16px 0 16px;
+`;

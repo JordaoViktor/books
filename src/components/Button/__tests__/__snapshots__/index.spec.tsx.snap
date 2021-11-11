@@ -1,5 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button component should match a snapshot 1`] = `
+<View
+  accessible={true}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FFFF",
+      "borderColor": "transparent",
+      "borderRadius": 20,
+      "borderWidth": 1,
+      "height": 36,
+      "justifyContent": "center",
+      "opacity": 1,
+      "paddingBottom": 9,
+      "paddingLeft": 9,
+      "paddingRight": 9,
+      "paddingTop": 9,
+    }
+  }
+/>
+`;
+
 exports[`matches button snapshot 1`] = `
 <View
   accessible={true}

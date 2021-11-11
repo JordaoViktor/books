@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { FlatList, Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-native';
 
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
@@ -9,7 +9,7 @@ import { RootStackParamListType } from '@routes/main.routes';
 
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
 
-import { Button, Input, Modal } from '@components/index';
+import { Button, Input, Modal, Card } from '@components/index';
 
 import {
   ModalWrapper,
@@ -31,7 +31,8 @@ import {
   SearchIcon,
   FilterIcon,
   FilterIconButton,
-  SearchIconButton
+  SearchIconButton,
+  CardsContainer
 } from './styles';
 import { useReduxDispatch, useReduxSelector } from '@hooks/index';
 import { fetchBooks } from '@store/slices/books';
@@ -42,7 +43,7 @@ type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const dispatch = useReduxDispatch()
-  const books = useReduxSelector((store) => console.log(store));
+  const books = useReduxSelector((store) => store.books.data?.data);
   const theme = useTheme()
   const navigation = useNavigation<HomeScreenProps>()
 
@@ -54,7 +55,7 @@ export const Home = () => {
   useEffect(() => {
 
     dispatch(fetchBooks())
-  }, [])
+  }, [dispatch])
 
   return (
     <>
@@ -145,6 +146,13 @@ export const Home = () => {
               </FilterIconButton>
             </SearchBarWrapper>
           </SearchBarContainer>
+          <CardsContainer>
+            <FlatList
+              data={books}
+              keyExtractor={({ item }) => String(item?.id)}
+              renderItem={({ item }) => <Card onPress={() => { navigation.navigate('BookDetail', { params: { item } }) }}  {...item} />}
+            />
+          </CardsContainer>
         </Container>
       </TouchableWithoutFeedback>
     </>
