@@ -16,7 +16,7 @@ export const ModalBackground = styled.SafeAreaView`
 export const ModalContainer = styled.View`
   width:90%;
   margin-top:50px;
-  min-height:70%;
+  min-height:55%;
   border-radius:4px;
   background-color: ${({ theme }) => theme.colors.primary};
 `;

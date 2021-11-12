@@ -50,6 +50,7 @@ type BookDetailScreenProps = StackNavigationProp<RootStackParamListType, 'BookDe
 
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [categoryData, setCategoryData] = useState([])
   const dispatch = useReduxDispatch()
   const books = useReduxSelector((store) => store.books?.data?.data)
   const theme = useTheme()
@@ -61,10 +62,34 @@ export const Home = () => {
 
   const handleNavigateBookDetails = (item: BookDetailDTO) => navigation.navigate('BookDetail', { params: { item } })
 
+  const isButtonActive = (item: string) => categoryData?.includes(item)
+
+  const handleButtonPress = (item: string[] | never) => {
+    const handleActiveButton = (evt: string | never) => {
+      if (!categoryData.includes(evt)) {
+        return [...categoryData, evt];
+      }
+
+      return [
+        ...categoryData.filter(ref => ref !== evt)
+      ]
+    }
+
+    return setCategoryData(handleActiveButton(item))
+  };
+
+  const handleFetchBooks = (categoryQuery = '') => dispatch(fetchBooks(categoryQuery))
+
+  const handleFilterBooks = (item = '') => {
+    handleFetchBooks(item)
+    handleModalInteraction()
+  }
+
   useEffect(() => {
-    dispatch(fetchBooks())
+    handleFetchBooks()
   }, [dispatch])
 
+  console.log('category:', categoryData.join('%2C'))
   return (
     <>
       <StatusBar
@@ -79,7 +104,7 @@ export const Home = () => {
         accessible
         accessibilityLabel='Modal'
       >
-        <ModalWrapper >
+        <ModalWrapper>
           <ModalCloseHeader>
             <Button
               accessible
@@ -97,25 +122,33 @@ export const Home = () => {
           </ModalCategoryPick>
 
           <SelectButtonContainer>
-            {categoryConstants.map(item => (
-              <ButtonWrapper>
-                <Button
-                  key={item.id}
-                  borderColor={theme.colors.darkOpacity300}
-                >
-                  <ButtonText>
-                    {item.name}
-                  </ButtonText>
-                </Button>
-              </ButtonWrapper>
-            ))}
+            {categoryConstants.map(categoryItem => {
+              const active = !!isButtonActive(categoryItem.query)
+
+              return (
+                <ButtonWrapper key={categoryItem.id}>
+                  <Button
+                    borderColor={theme.colors.darkOpacity300}
+                    onPress={() => handleButtonPress(categoryItem.query)}
+                    backgroundColor={active ? theme.colors.darkText : theme.colors.primary}
+                  >
+                    <ButtonText color={active ? theme.colors.primary : theme.colors.darkText}>
+                      {categoryItem.name}
+                    </ButtonText>
+                  </Button>
+                </ButtonWrapper>
+              )
+            })}
           </SelectButtonContainer>
+
           <ModalCloseFooter>
             <ModalCloseButton>
               <Button
                 label="Filtrar"
                 borderColor={theme.colors.tertiary}
-                color={theme.colors.tertiary} />
+                color={theme.colors.tertiary}
+                onPress={() => handleFilterBooks(categoryData.join('&category='))}
+              />
             </ModalCloseButton>
           </ModalCloseFooter>
         </ModalWrapper>

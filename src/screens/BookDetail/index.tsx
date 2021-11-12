@@ -42,7 +42,7 @@ export const BookDetail = () => {
   const {
     params
   } = route?.params
-  // const { imageUrl, title } = params!.item || {} as BookDetailDTO
+
   const imageUrl = params?.item?.imageUrl
   const title = params?.item?.title
   const authors = params?.item?.authors.join(', ')

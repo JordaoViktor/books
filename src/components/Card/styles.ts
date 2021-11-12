@@ -2,7 +2,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 import styled from 'styled-components/native';
 
 export const Container = styled.TouchableOpacity`
-  width:288px;
+  width:100%;
   min-height:160px;
 
   background-color: ${({ theme }) => theme.colors.primary};
@@ -17,6 +17,8 @@ export const Container = styled.TouchableOpacity`
 export const CardWrapper = styled.View`
   margin: 19px 19px 16px 16px;
   flex-direction: row;
+  justify-content:space-around;
+
 `;
 
 export const BookImage = styled.Image.attrs({

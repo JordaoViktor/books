@@ -496,6 +496,7 @@ exports[`BookDetail Screen matches BookDetail screen snapshot 1`] = `
         style={
           Array [
             Object {
+              "marginBottom": 30,
               "marginTop": 18,
             },
           ]

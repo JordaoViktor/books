@@ -33,6 +33,7 @@ export const ArrowIcon = styled(Feather).attrs({
 
 export const ContentContainer = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false
+
 })`
   flex:1;
   margin: 0 40px;
@@ -111,6 +112,7 @@ export const InformationDataText = styled.Text`
 
 export const BookResumeContainer = styled.View`
   margin-top:18px;
+  margin-bottom:30px;
 `;
 
 export const BookResumeIconWrapper = styled.View`

@@ -52,7 +52,7 @@ export const ButtonWrapper = styled.View`
 export const ButtonText = styled.Text<ButtonText>`
   font-size:${RFValue(12)}px;
   font-family:${({ theme }) => theme.fonts.normal};
-  color:${({ theme, color }) => color ? color : theme.colors.darkText}
+  color:${({ theme, color }) => color ? color : theme.colors.darkText};
 `;
 
 export const ModalTitle = styled.Text`
@@ -185,8 +185,8 @@ export const FilterIcon = styled(Ionicons).attrs({
 `
 
 export const CardsContainer = styled.View`
-  width:100%;
+  
   height:100%;
-
+  
   margin: 32px 16px 0 16px;
 `;

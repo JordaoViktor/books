@@ -35,7 +35,7 @@ exports[`Input Component matches modal snapshot 1`] = `
             "backgroundColor": "#FFFF",
             "borderRadius": 4,
             "marginTop": 50,
-            "minHeight": "70%",
+            "minHeight": "55%",
             "width": "90%",
           },
         ]
