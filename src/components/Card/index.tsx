@@ -20,7 +20,7 @@ interface ICardProps extends TouchableOpacityProps {
   description: string;
   pageCount: number
   publisher: string;
-  published: number
+  published: string;
   imageUrl: string;
   onPress: () => void;
 }
@@ -41,7 +41,7 @@ export const Card = ({
       <BookInformationContainer>
         <BookInformationHeader>
           <Title>{title}</Title>
-          <SubTitle>{authors}</SubTitle>
+          <SubTitle>{authors.join(', ')}</SubTitle>
 
         </BookInformationHeader>
 

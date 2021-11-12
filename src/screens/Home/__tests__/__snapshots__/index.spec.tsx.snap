@@ -37,14 +37,15 @@ Array [
             Object {
               "backgroundColor": "#FFFF",
               "borderRadius": 4,
-              "height": "70%",
               "marginTop": 50,
+              "minHeight": "70%",
               "width": "90%",
             },
           ]
         }
       >
-        <View
+        <RCTScrollView
+          showsVerticalScrollIndicator={false}
           style={
             Array [
               Object {
@@ -57,70 +58,1018 @@ Array [
             ]
           }
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "#FFFF",
-                  "flexDirection": "row",
-                  "justifyContent": "flex-end",
-                },
-              ]
-            }
-          >
+          <View>
             <View
-              accessibilityLabel="Close modal"
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#FFFF",
-                  "borderColor": "rgba(0,0,0,0.32)",
-                  "borderRadius": 20,
-                  "borderWidth": 1,
-                  "height": 36,
-                  "justifyContent": "center",
-                  "opacity": 1,
-                  "paddingBottom": 9,
-                  "paddingLeft": 9,
-                  "paddingRight": 9,
-                  "paddingTop": 9,
-                }
-              }
-            >
-              <Text />
-            </View>
-          </View>
-          <View
-            style={
-              Array [
-                Object {},
-              ]
-            }
-          >
-            <Text
               style={
                 Array [
                   Object {
-                    "color": "#333333",
-                    "fontFamily": "Heebo_500Medium",
-                    "fontSize": 24,
+                    "backgroundColor": "#FFFF",
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
                   },
                 ]
               }
             >
-              Selecione a categoria
-            </Text>
+              <View
+                accessibilityLabel="Close modal"
+                accessible={true}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "#FFFF",
+                    "borderColor": "rgba(0,0,0,0.32)",
+                    "borderRadius": 20,
+                    "borderWidth": 1,
+                    "height": 36,
+                    "justifyContent": "center",
+                    "opacity": 1,
+                    "paddingBottom": 9,
+                    "paddingLeft": 9,
+                    "paddingRight": 9,
+                    "paddingTop": 9,
+                  }
+                }
+              >
+                <Text />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "marginBottom": 10,
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#333333",
+                      "fontFamily": "Heebo_500Medium",
+                      "fontSize": 24,
+                    },
+                  ]
+                }
+              >
+                Selecione a categoria
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Biografias
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Coleções
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Comportamento
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Contos
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Critica Literária
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Ficção Cientifica 
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Genealogia
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Humor
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Criança
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Jogos
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Jornais
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Literatura brasileira
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Livros raros
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Manuscritos
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Poesia
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "marginBottom": 4,
+                      "marginLeft": 2,
+                      "marginRight": 2,
+                      "marginTop": 4,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "rgba(0,0,0,0.32)",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#333333",
+                          "fontFamily": "Heebo_400Regular",
+                          "fontSize": 24,
+                        },
+                      ]
+                    }
+                  >
+                    Outros assuntos
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "justifyContent": "center",
+                    "marginTop": 20,
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "height": 36,
+                      "width": 91,
+                    },
+                  ]
+                }
+              >
+                <View
+                  accessible={true}
+                  focusable={false}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#FFFF",
+                      "borderColor": "#AB2680",
+                      "borderRadius": 20,
+                      "borderWidth": 1,
+                      "height": 36,
+                      "justifyContent": "center",
+                      "opacity": 1,
+                      "paddingBottom": 9,
+                      "paddingLeft": 9,
+                      "paddingRight": 9,
+                      "paddingTop": 9,
+                    }
+                  }
+                >
+                  <Text
+                    color="#AB2680"
+                    style={
+                      Array [
+                        Object {
+                          "alignItems": "center",
+                          "color": "#AB2680",
+                          "fontFamily": "Heebo_500Medium",
+                          "fontSize": 31,
+                          "justifyContent": "center",
+                          "marginTop": -2,
+                          "textAlign": "center",
+                        },
+                      ]
+                    }
+                  >
+                    Filtrar
+                  </Text>
+                </View>
+              </View>
+            </View>
           </View>
-        </View>
+        </RCTScrollView>
       </View>
     </RCTSafeAreaView>
   </Modal>,

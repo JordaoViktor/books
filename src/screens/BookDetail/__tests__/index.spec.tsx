@@ -39,16 +39,16 @@ const ReduxProvider = ({ children }: IProviderProps) => {
 };
 
 describe('BookDetail Screen', () => {
-  test('matches BookDetail screen snapshot', async () => {
+  test('matches BookDetail screen snapshot', () => {
     afterEach(() => {
       // cleaning up the mess left behind the previous test
       mockAxios.reset();
     });
     afterAll(() => { jest.useFakeTimers() })
     afterEach(cleanup)
-    const navigation = { navigate: jest.fn() };
 
-    const tree = await renderer
+
+    const tree = renderer
       .create(
         <ReduxProvider >
           <BookDetail />

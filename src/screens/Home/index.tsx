@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { FlatList, Keyboard, StatusBar, TouchableWithoutFeedback } from 'react-native';
+import { FlatList, Keyboard, StatusBar, TouchableWithoutFeedback, Text } from 'react-native';
 
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
@@ -10,6 +10,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamListType } from '@routes/main.routes';
 
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
+import { BookDetailDTO } from '@services/types';
 
 import { Button, Input, Modal, Card } from '@components/index';
 
@@ -34,11 +35,18 @@ import {
   FilterIcon,
   FilterIconButton,
   SearchIconButton,
-  CardsContainer
+  CardsContainer,
+  SelectButtonContainer,
+  ButtonWrapper,
+  ModalCloseFooter,
+  ModalCloseButton,
+  ButtonText
 } from './styles';
+import { categoryConstants } from './constants/category';
 
 type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 type BookDetailScreenProps = StackNavigationProp<RootStackParamListType, 'BookDetail'>
+
 
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -50,6 +58,8 @@ export const Home = () => {
   const handleModalInteraction = useCallback(() => setModalVisible(!modalVisible), [modalVisible]);
 
   const handleLogout = () => navigation.navigate('Login')
+
+  const handleNavigateBookDetails = (item: BookDetailDTO) => navigation.navigate('BookDetail', { params: { item } })
 
   useEffect(() => {
     dispatch(fetchBooks())
@@ -85,6 +95,29 @@ export const Home = () => {
           <ModalCategoryPick>
             <ModalTitle>Selecione a categoria</ModalTitle>
           </ModalCategoryPick>
+
+          <SelectButtonContainer>
+            {categoryConstants.map(item => (
+              <ButtonWrapper>
+                <Button
+                  key={item.id}
+                  borderColor={theme.colors.darkOpacity300}
+                >
+                  <ButtonText>
+                    {item.name}
+                  </ButtonText>
+                </Button>
+              </ButtonWrapper>
+            ))}
+          </SelectButtonContainer>
+          <ModalCloseFooter>
+            <ModalCloseButton>
+              <Button
+                label="Filtrar"
+                borderColor={theme.colors.tertiary}
+                color={theme.colors.tertiary} />
+            </ModalCloseButton>
+          </ModalCloseFooter>
         </ModalWrapper>
       </Modal>
 
@@ -148,7 +181,7 @@ export const Home = () => {
             <FlatList
               data={books}
               keyExtractor={(item) => String(item?.id)}
-              renderItem={({ item }) => <Card onPress={() => { navigation.navigate('BookDetail', { params: { item } }) }}  {...item} />}
+              renderItem={({ item }) => <Card onPress={() => handleNavigateBookDetails(item)}  {...item} />}
             />
           </CardsContainer>
         </Container>

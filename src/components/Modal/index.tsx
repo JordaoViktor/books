@@ -9,15 +9,12 @@ interface Props {
   accessibilityLabel?: string;
 }
 
-export const Modal = ({ visible, children, ...rest }: Props) => {
-  return (
-    <ModalFilter {...rest} visible={visible} testID='modal'>
-      <ModalBackground>
-        <ModalContainer>
-          {children}
-        </ModalContainer>
-      </ModalBackground>
-    </ModalFilter>
-  )
-}
-
+export const Modal = ({ visible, children, ...rest }: Props) => (
+  <ModalFilter {...rest} visible={visible} testID='modal'>
+    <ModalBackground>
+      <ModalContainer>
+        {children}
+      </ModalContainer>
+    </ModalBackground>
+  </ModalFilter>
+)

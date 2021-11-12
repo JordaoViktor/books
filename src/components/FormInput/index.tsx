@@ -10,21 +10,20 @@ interface Props extends TextInputProps {
   name: string;
 }
 
-export const FormInput = ({ control, name, ...rest }: Props) => {
-  return (
-    <Container >
-      <Controller
-        name={name}
-        control={control}
-        render={({ field: { onChange, value } }) => (
-          <Input
-            onChangeText={onChange}
-            value={value}
-            {...rest}
-          />
-        )}
-      />
-    </Container >
-  );
-}
+export const FormInput = ({ control, name, ...rest }: Props) => (
+  <Container >
+    <Controller
+      name={name}
+      control={control}
+      render={({ field: { onChange, value } }) => (
+        <Input
+          onChangeText={onChange}
+          value={value}
+          {...rest}
+        />
+      )}
+    />
+  </Container >
+)
+
 

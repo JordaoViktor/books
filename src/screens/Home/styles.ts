@@ -9,12 +9,16 @@ interface LogoutProps extends RectButtonProps {
   accessible: boolean;
   accessibilityLabel: string;
 }
-
+interface ButtonText {
+  color?: string;
+}
 interface FilterButtonProps extends RectButtonProps {
   accessible: boolean;
   accessibilityLabel: string;
 }
-export const ModalWrapper = styled.View`
+export const ModalWrapper = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false
+})`
   margin: 16px 16px 16px 16px;
   background-color: ${({ theme }) => theme.colors.primary};
 
@@ -33,7 +37,22 @@ export const CloseIcon = styled(Feather).attrs({
 `;
 
 export const ModalCategoryPick = styled.View`
+  margin-bottom:10px;
+`;
 
+export const SelectButtonContainer = styled.View`
+  flex-direction: row;
+  flex-wrap:wrap;
+`;
+
+export const ButtonWrapper = styled.View`
+  margin:4px 2px;
+`;
+
+export const ButtonText = styled.Text<ButtonText>`
+  font-size:${RFValue(12)}px;
+  font-family:${({ theme }) => theme.fonts.normal};
+  color:${({ theme, color }) => color ? color : theme.colors.darkText}
 `;
 
 export const ModalTitle = styled.Text`
@@ -43,6 +62,16 @@ export const ModalTitle = styled.Text`
 
 `;
 
+export const ModalCloseFooter = styled.View`
+  margin-top: 20px;
+  justify-content: center;
+  align-items:center;
+`;
+
+export const ModalCloseButton = styled.View`
+  width:91px;
+  height:36px;
+`
 
 
 export const Container = styled.SafeAreaView`

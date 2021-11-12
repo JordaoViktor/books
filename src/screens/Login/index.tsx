@@ -17,8 +17,7 @@ import { RootStackParamListType } from '@routes/main.routes'
 import IoasysLogo from '@assets/svg/ioasysLogo.svg'
 
 import { FormInput, Button } from '@components/index'
-import { Provider } from 'react-redux'
-import configureStore from 'redux-mock-store'
+
 import {
   KeyboardDismiss,
   BackgroundImage,
@@ -107,7 +106,6 @@ export const Login = () => {
                 height={40}
                 fill={theme.colors.lightenText}
                 accessibilityLabel='Ioasys'
-
               />
 
               <Title>Books</Title>
@@ -115,10 +113,10 @@ export const Login = () => {
 
             <InputWrapper marginTop={50}>
               <InputTitle>Email</InputTitle>
+
               <ErrorWrapper>
                 <InputTitle>{errors && errors.email?.message}</InputTitle>
               </ErrorWrapper>
-
 
               <BackgroundInput>
                 <FormInput

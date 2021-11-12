@@ -31,9 +31,10 @@ export const ArrowIcon = styled(Feather).attrs({
   padding-right:20px;
 `;
 
-export const ContentContainer = styled.ScrollView`
+export const ContentContainer = styled.ScrollView.attrs({
+  showsVerticalScrollIndicator: false
+})`
   flex:1;
-
   margin: 0 40px;
 `;
 
@@ -69,4 +70,49 @@ export const BookTitle = styled.Text.attrs({
   flex-wrap:wrap;
   margin-top:24px;
   
+`;
+
+export const BookSubtitle = styled.Text`
+  font-size:${RFValue(18)}px;
+  color:${({ theme }) => theme.colors.tertiary};
+  font-family:${({ theme }) => theme.fonts.normal};
+  line-height:20px;
+`;
+
+export const InformationContainer = styled.View`
+  margin-top:35px;
+`;
+export const InformationHeader = styled.View`
+  margin-bottom:15px;
+`
+
+export const InformationText = styled.Text`
+  font-size:${RFValue(12)}px;
+  font-family:${({ theme }) => theme.fonts.bold};
+
+  color:${({ theme }) => theme.colors.darkText};
+
+  line-height:20px;
+
+`;
+
+export const InformationWrapper = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const InformationDataText = styled.Text`
+  font-size:${RFValue(12)}px;
+  font-family:${({ theme }) => theme.fonts.bold};
+
+  color:${({ theme }) => theme.colors.darkOpacity300};
+  line-height:20px;
+`;
+
+export const BookResumeContainer = styled.View`
+  margin-top:18px;
+`;
+
+export const BookResumeIconWrapper = styled.View`
+  margin-right: 5px
 `;
