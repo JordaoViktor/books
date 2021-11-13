@@ -11,7 +11,7 @@ const bookSlice = createSlice({
   name: '@books',
   initialState,
   reducers: {
-    fetchBooks(draft) {
+    fetchBooks(draft, { payload }) {
       draft.error = null;
       draft.isLoading = true;
     },

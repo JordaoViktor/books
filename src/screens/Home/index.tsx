@@ -48,15 +48,18 @@ type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 type BookDetailScreenProps = StackNavigationProp<RootStackParamListType, 'BookDetail'>
 
 export const Home = () => {
+  const dispatch = useReduxDispatch()
+  const books = useReduxSelector((store) => store.books?.data)
+
   const [modalVisible, setModalVisible] = useState(false);
   const [categoryData, setCategoryData] = useState([])
   const [searchBarInput, setSearchBarInput] = useState('')
-  const books = useReduxSelector((store) => store.books?.data)
   const [bookList, setBookList] = useState(books)
-  const dispatch = useReduxDispatch()
 
   const theme = useTheme()
   const navigation = useNavigation<HomeScreenProps | BookDetailScreenProps>()
+
+  const categoryQuery = categoryData.join('&category=')
 
   const handleModalInteraction = useCallback(() => setModalVisible(!modalVisible), [modalVisible]);
 
@@ -84,19 +87,13 @@ export const Home = () => {
 
   const handleFilterBooks = (item = '') => {
     handleFetchBooks(item)
+    setBookList(books)
     handleModalInteraction()
   }
 
-  const handleInputSearch = (event) => {
-    setSearchBarInput(event)
+  const handleInputSearch = useCallback((event = '') => setSearchBarInput(event), [searchBarInput, books])
 
-    console?.log('searchBar: ', searchBarInput)
-    // return setSearchBarInput(event)
-  }
-
-  const handleSearchFilter = () => {
-    setBookList(books.filter((item) => item?.title?.includes(searchBarInput)))
-  }
+  const handleSearchFilter = useCallback(() => setBookList(books?.filter((item) => item?.title?.includes(searchBarInput))), [searchBarInput, books])
 
   useEffect(() => {
     handleFetchBooks()
@@ -112,7 +109,7 @@ export const Home = () => {
 
       <Modal
         visible={modalVisible}
-        onRequestClose={() => handleModalInteraction()}
+        onRequestClose={handleModalInteraction}
         accessible
         accessibilityLabel='Modal'
       >
@@ -121,7 +118,7 @@ export const Home = () => {
             <Button
               accessible
               accessibilityLabel='Close modal'
-              onPress={() => handleModalInteraction()}
+              onPress={handleModalInteraction}
               borderColor={theme.colors.darkOpacity300}
             >
               <CloseIcon />
@@ -159,7 +156,7 @@ export const Home = () => {
                 label="Filtrar"
                 borderColor={theme.colors.tertiary}
                 color={theme.colors.tertiary}
-                onPress={() => handleFilterBooks(categoryData.join('&category='))}
+                onPress={() => handleFilterBooks(categoryQuery)}
               />
             </ModalCloseButton>
           </ModalCloseFooter>
@@ -187,7 +184,7 @@ export const Home = () => {
               <LogoutButton
                 accessible
                 accessibilityLabel='Logout Button'
-                onPress={() => handleLogout()}>
+                onPress={handleLogout}>
                 <LogoutIcon />
               </LogoutButton>
             </LogoutWrapper>
@@ -219,7 +216,7 @@ export const Home = () => {
               <FilterIconButton
                 accessible
                 accessibilityLabel='Filter Button'
-                onPress={() => handleModalInteraction()}>
+                onPress={handleModalInteraction}>
                 <FilterIcon />
               </FilterIconButton>
             </SearchBarWrapper>
