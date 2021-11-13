@@ -47,12 +47,14 @@ import { categoryConstants } from './constants/category';
 type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 type BookDetailScreenProps = StackNavigationProp<RootStackParamListType, 'BookDetail'>
 
-
 export const Home = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [categoryData, setCategoryData] = useState([])
+  const [searchBarInput, setSearchBarInput] = useState('')
+  const books = useReduxSelector((store) => store.books?.data)
+  const [bookList, setBookList] = useState(books)
   const dispatch = useReduxDispatch()
-  const books = useReduxSelector((store) => store.books?.data?.data)
+
   const theme = useTheme()
   const navigation = useNavigation<HomeScreenProps | BookDetailScreenProps>()
 
@@ -64,14 +66,14 @@ export const Home = () => {
 
   const isButtonActive = (item: string) => categoryData?.includes(item)
 
-  const handleButtonPress = (item: string[] | never) => {
-    const handleActiveButton = (evt: string | never) => {
-      if (!categoryData.includes(evt)) {
-        return [...categoryData, evt];
+  const handleButtonPress = (item: string) => {
+    const handleActiveButton = (event) => {
+      if (!categoryData.includes(event)) {
+        return [...categoryData, event];
       }
 
       return [
-        ...categoryData.filter(ref => ref !== evt)
+        ...categoryData.filter(ref => ref !== event)
       ]
     }
 
@@ -85,11 +87,21 @@ export const Home = () => {
     handleModalInteraction()
   }
 
+  const handleInputSearch = (event) => {
+    setSearchBarInput(event)
+
+    console?.log('searchBar: ', searchBarInput)
+    // return setSearchBarInput(event)
+  }
+
+  const handleSearchFilter = () => {
+    setBookList(books.filter((item) => item?.title?.includes(searchBarInput)))
+  }
+
   useEffect(() => {
     handleFetchBooks()
   }, [dispatch])
 
-  console.log('category:', categoryData.join('%2C'))
   return (
     <>
       <StatusBar
@@ -191,6 +203,7 @@ export const Home = () => {
                     color={theme.colors.darkText}
                     accessible
                     accessibilityLabel='Search a book input'
+                    onChangeText={handleInputSearch}
                   />
                 </InputWrapper>
               </InputBody>
@@ -198,6 +211,7 @@ export const Home = () => {
               <SearchIconButton
                 accessible
                 accessibilityLabel='Search Button'
+                onPress={handleSearchFilter}
               >
                 <SearchIcon />
               </SearchIconButton>
@@ -210,11 +224,13 @@ export const Home = () => {
               </FilterIconButton>
             </SearchBarWrapper>
           </SearchBarContainer>
+
           <CardsContainer>
             <FlatList
-              data={books}
+              data={bookList}
               keyExtractor={(item) => String(item?.id)}
               renderItem={({ item }) => <Card onPress={() => handleNavigateBookDetails(item)}  {...item} />}
+              showsVerticalScrollIndicator={false}
             />
           </CardsContainer>
         </Container>

@@ -12,55 +12,48 @@ export const ExitContainer = styled.View`
   height:36px;
   width:100%;
   margin-top: ${ifIphoneX(20, 30)}px;
-  
 `;
 
 export const ButtonWrapper = styled.TouchableOpacity`
   width:35px;
   height:35px;
   margin-left:16px;
-  
 `;
 
 export const ArrowIcon = styled(Feather).attrs({
   name: 'arrow-left'
 })`
   color:${({ theme }) => theme.colors.darkText};
-  font-size:${RFValue(25)}px;
-  padding-bottom:20px;
-  padding-right:20px;
+  font-size:${RFValue(18)}px;
 `;
 
 export const ContentContainer = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false
-
 })`
   flex:1;
   margin: 0 40px;
 `;
 
 export const BookImageWrapper = styled.View`
-  width:240px;
   height:351px;
   margin-top:12px;
+
+  justify-content:center;
+  align-items:center;
 
   shadow-color: #000;
   shadow-offset: 3px 8px;
   shadow-opacity: 0.2;
   shadow-radius: 10.84px;
   elevation: 5;
-
- 
 `;
 
 export const BookImage = styled.Image`
-  width:100%;
   height:100%;
+  width:240px;
 `;
 
-export const ContentWrapper = styled.View`
-
-`;
+export const ContentWrapper = styled.View``;
 
 export const BookTitle = styled.Text.attrs({
   numberOfLines: 2,
@@ -70,7 +63,6 @@ export const BookTitle = styled.Text.attrs({
   color:${({ theme }) => theme.colors.darkText};
   flex-wrap:wrap;
   margin-top:24px;
-  
 `;
 
 export const BookSubtitle = styled.Text`
@@ -83,6 +75,7 @@ export const BookSubtitle = styled.Text`
 export const InformationContainer = styled.View`
   margin-top:35px;
 `;
+
 export const InformationHeader = styled.View`
   margin-bottom:15px;
 `

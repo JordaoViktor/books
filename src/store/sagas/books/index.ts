@@ -10,7 +10,7 @@ export function* fetchBooksSaga({ payload }) {
       `/books/?page=1&amount=25&category=${payload ? payload : 'biographies&category=children'}`,
     );
 
-    yield put(fetchBooksSuccess({ data }));
+    yield put(fetchBooksSuccess(data));
   } catch (error) {
     if (error instanceof Error) {
       yield put(

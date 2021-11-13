@@ -35,6 +35,7 @@ interface IRouteParamsProps {
 export const BookDetail = () => {
   const theme = useTheme()
   const navigation = useNavigation()
+
   const route = useRoute() as {
     params: IRouteParamsProps
   }
@@ -54,7 +55,6 @@ export const BookDetail = () => {
   const isbn13 = params?.item?.isbn13
   const category = params?.item?.category
   const description = params?.item?.description
-
 
   const handlePreviousPage = () => navigation.goBack()
 
