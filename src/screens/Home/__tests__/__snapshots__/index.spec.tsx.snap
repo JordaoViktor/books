@@ -1267,6 +1267,7 @@ Array [
               accessible={true}
               allowFontScaling={true}
               color="#333333"
+              onChangeText={[Function]}
               placeholder="Preocure um livro"
               placeholderTextColor="rgba(0,0,0,0.20)"
               rejectResponderTermination={true}
@@ -1290,7 +1291,7 @@ Array [
         <View
           accessibilityLabel="Search Button"
           accessible={true}
-          focusable={false}
+          focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1360,6 +1361,7 @@ Array [
         removeClippedSubviews={false}
         renderItem={[Function]}
         scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
         stickyHeaderIndices={Array []}
         updateCellsBatchingPeriod={50}
         viewabilityConfigCallbackPairs={Array []}

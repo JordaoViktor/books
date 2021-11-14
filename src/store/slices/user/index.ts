@@ -12,7 +12,6 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     login(draft, { payload }) {
-      console.log(payload);
       draft.error = null;
       draft.data = payload.data;
       draft.isLoading = true;

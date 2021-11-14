@@ -187,6 +187,6 @@ export const FilterIcon = styled(Ionicons).attrs({
 export const CardsContainer = styled.View`
   
   height:100%;
-  
+  flex:1;
   margin: 32px 16px 0 16px;
 `;

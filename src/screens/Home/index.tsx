@@ -1,10 +1,10 @@
-import React, { useCallback, useState, useEffect } from 'react';
-import { FlatList, Keyboard, StatusBar, TouchableWithoutFeedback, Text } from 'react-native';
+import React, { useCallback, useState, useEffect, useRef } from 'react';
+import { Dimensions, FlatList, Keyboard, StatusBar, TouchableWithoutFeedback, View } from 'react-native';
 
 import { useTheme } from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 import { useReduxDispatch, useReduxSelector } from '@hooks/index';
-import { fetchBooks } from '@store/slices/books';
+import { fetchBooks, fetchMoreBooks } from '@store/slices/books';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamListType } from '@routes/main.routes';
@@ -43,13 +43,15 @@ import {
   ButtonText
 } from './styles';
 import { categoryConstants } from './constants/category';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type HomeScreenProps = StackNavigationProp<RootStackParamListType, 'Home'>
 type BookDetailScreenProps = StackNavigationProp<RootStackParamListType, 'BookDetail'>
 
 export const Home = () => {
   const dispatch = useReduxDispatch()
-  const books = useReduxSelector((store) => store.books?.data)
+  const books = useReduxSelector((store) => store.books.data)
+  const books1 = useReduxSelector((store) => console.log(store))
 
   const [modalVisible, setModalVisible] = useState(false);
   const [categoryData, setCategoryData] = useState([])
@@ -91,12 +93,12 @@ export const Home = () => {
     handleModalInteraction()
   }
 
-  const handleInputSearch = useCallback((event = '') => setSearchBarInput(event), [searchBarInput, books])
+  const handleInputSearch = useCallback((event = '') => setSearchBarInput(event), [searchBarInput])
 
-  const handleSearchFilter = useCallback(() => setBookList(books?.filter((item) => item?.title?.includes(searchBarInput))), [searchBarInput, books])
+  const handleSearchFilter = useCallback(() => setBookList(books?.filter((item) => item?.title?.includes(searchBarInput))), [searchBarInput, books, bookList])
 
   useEffect(() => {
-    handleFetchBooks()
+    handleFetchBooks(categoryQuery)
   }, [dispatch])
 
   return (
@@ -223,12 +225,18 @@ export const Home = () => {
           </SearchBarContainer>
 
           <CardsContainer>
+
+
             <FlatList
-              data={bookList}
+              contentContainerStyle={{ paddingBottom: 100 }}
+              data={books}
               keyExtractor={(item) => String(item?.id)}
               renderItem={({ item }) => <Card onPress={() => handleNavigateBookDetails(item)}  {...item} />}
               showsVerticalScrollIndicator={false}
+              onEndReached={() => dispatch(fetchMoreBooks())}
+              onEndReachedThreshold={0.1}
             />
+
           </CardsContainer>
         </Container>
       </TouchableWithoutFeedback>

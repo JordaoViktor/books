@@ -20,14 +20,9 @@ export function* loginSaga({ payload: { email, password } }: IUserSignInAuth) {
       { email, password }
     );
 
-    const user = { ...data, token: headers['authorization'] };
+    const user = { ...data, token: headers.authorization };
 
-    console.log('Im a user:', user)
-
-    yield call(AsyncStorage.setItem, '@user', JSON.stringify(user));
-    yield put(loginSuccess({ data }));
-    console.log('headers dude: ', headers)
-    console.log('token dude: ', user.token)
+    console.log('Im a user:', headers)
     api.interceptors.request.use((config: any) => {
 
       config.headers.authorization = `Bearer ${user.token}`
@@ -36,6 +31,9 @@ export function* loginSaga({ payload: { email, password } }: IUserSignInAuth) {
 
       return config;
     });
+
+    yield call(AsyncStorage.setItem, '@user', JSON.stringify(user));
+    yield put(loginSuccess(data));
 
   } catch (error) {
     if (error instanceof Error) {

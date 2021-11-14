@@ -5,6 +5,6 @@ import fetchBooksSaga from './books'
 export function* rootSagas() {
   yield all([
     userSaga(),
-    fetchBooksSaga()
+    fetchBooksSaga(),
   ])
 } 
